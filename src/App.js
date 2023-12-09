@@ -21,8 +21,7 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick }) => (
     />
     <button className="button cart" onClick={onCartClick}>Shopping cart</button>
     <button className="button login" onClick={onLoginClick}>Login</button>
-    <button className = "button admin" onClick = {onAdminClick}>Admin</button>
-    <button className = "button questions" onClick = {onQuestions}>Feedback</button>
+    <button className="button admin" onClick={onAdminClick}>Admin</button>
   </header>
 );
 
@@ -36,8 +35,6 @@ function App() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [showAdmin, setShowAdmin] = useState(false);
-  const [showQuestions, setShowQuestions] = useState(false);
-
   /* const { createProxyMiddleware } = require('http-proxy-middleware');
  
  module.exports = function(app) {
@@ -113,9 +110,10 @@ function App() {
         <AdminPage onBack={() => setShowAdmin(false)} />
       )}
 
-      {showQuestions && (
-        <FeedbackForm onBack={() => setShowQuestions(false)}/>
-      )}
+      <div style={{ backgroundColor: 'white', height: '100px', width: '100%', position: 'fixed', bottom: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {/* Добавьте вашу кнопку здесь */}
+        <button className="button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>Chat</button>
+      </div>
     </div>
   );
 }
