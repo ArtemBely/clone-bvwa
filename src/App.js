@@ -22,7 +22,7 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick }) => (
     <button className="button cart" onClick={onCartClick}>Shopping cart</button>
     <button className="button login" onClick={onLoginClick}>Login</button>
     <button className = "button admin" onClick = {onAdminClick}>Admin</button>
-    
+    <button className = "button questions" onClick = {onQuestions}>Feedback</button>
   </header>
 );
 
@@ -32,8 +32,11 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  // const [products, setProducts] = useState([]);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [showAdmin, setShowAdmin] = useState(false);
+  const [showQuestions, setShowQuestions] = useState(false);
 
   /* const { createProxyMiddleware } = require('http-proxy-middleware');
  
@@ -48,8 +51,8 @@ function App() {
  };
  */
 
-  const products = [
-  ];
+  // const product = [
+  // ];
 
   const handleAddToCart = (selectedProduct) => {
     setCartItems([...cartItems, selectedProduct]);
@@ -59,9 +62,9 @@ function App() {
     setSearchTerm(searchValue);
   };
 
-  const filteredProducts = products.filter(product =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const filteredProducts = product.filter(product =>
+  //   product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
   return (
     <div className="App">
@@ -74,13 +77,15 @@ function App() {
             onAdminClick={() => setShowAdmin(true)}
           />
           <main className="main-content">
-            {filteredProducts.map(product => (
-              <ProductCard
-                key={product.id}
-                {...product}
-                onClick={handleAddToCart}
-              />
-            ))}
+            {/* {filteredProducts.map(product => ( */}
+            {/* <ProductCard
+              key={product.id}
+              {...product} */}
+            {/* // onClick={handleAddToCart} */}
+            {/* /> */}
+            {/* ))} */}
+            <ProductCard />
+
           </main>
         </>
       )}
@@ -107,11 +112,10 @@ function App() {
       {showAdmin && (
         <AdminPage onBack={() => setShowAdmin(false)} />
       )}
-      
-      <div style={{ backgroundColor: 'white', height: '100px', width: '100%', position: 'fixed', bottom: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        {/* Добавьте вашу кнопку здесь */}
-        <button className = "button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>Chat</button>
-      </div>
+
+      {showQuestions && (
+        <FeedbackForm onBack={() => setShowQuestions(false)}/>
+      )}
     </div>
   );
 }
