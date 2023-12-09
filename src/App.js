@@ -8,9 +8,8 @@ import RegisterPage from './regPage/RegistrationPage';
 import ProductCard from './productCard/ProductCard';
 import fastFoodLogo from './images/fastfoodlogo.jpg';
 import AdminPage from './AdminPage/adminPage';
-import FeedbackForm from './FeedBackForm/FeedBackForm.js'
 
-const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, onQuestions }) => (
+const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick }) => (
   <header className="header">
     <div className="logo">
       <img src={fastFoodLogo} alt="Fast Food Logo" />
@@ -23,7 +22,7 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, onQuestions
     <button className="button cart" onClick={onCartClick}>Shopping cart</button>
     <button className="button login" onClick={onLoginClick}>Login</button>
     <button className = "button admin" onClick = {onAdminClick}>Admin</button>
-    <button className = "button questions" onClick = {onQuestions}>Feedback</button>
+    
   </header>
 );
 
@@ -35,7 +34,6 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [showAdmin, setShowAdmin] = useState(false);
-  const [showQuestions, setShowQuestions] = useState(false);
 
   /* const { createProxyMiddleware } = require('http-proxy-middleware');
  
@@ -74,7 +72,6 @@ function App() {
             onCartClick={() => setShowCart(true)}
             onSearch={handleSearch}
             onAdminClick={() => setShowAdmin(true)}
-            onQuestions={() => setShowQuestions(true)}
           />
           <main className="main-content">
             {filteredProducts.map(product => (
@@ -110,10 +107,11 @@ function App() {
       {showAdmin && (
         <AdminPage onBack={() => setShowAdmin(false)} />
       )}
-
-      {showQuestions && (
-        <FeedbackForm onBack={() => setShowQuestions(false)}/>
-      )}
+      
+      <div style={{ backgroundColor: 'white', height: '100px', width: '100%', position: 'fixed', bottom: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {/* Добавьте вашу кнопку здесь */}
+        <button className = "button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>Chat</button>
+      </div>
     </div>
   );
 }
