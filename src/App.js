@@ -22,8 +22,8 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, onQuestions
     />
     <button className="button cart" onClick={onCartClick}>Shopping cart</button>
     <button className="button login" onClick={onLoginClick}>Login</button>
-    <button className = "button admin" onClick = {onAdminClick}>Admin</button>
-    <button className = "button questions" onClick = {onQuestions}>Feedback</button>
+    <button className="button admin" onClick={onAdminClick}>Admin</button>
+    <button className="button questions" onClick={onQuestions}>Feedback</button>
   </header>
 );
 
@@ -33,9 +33,12 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  // const [products, setProducts] = useState([]);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [showAdmin, setShowAdmin] = useState(false);
   const [showQuestions, setShowQuestions] = useState(false);
+  // const [products, setProducts] = useState([]);
 
   /* const { createProxyMiddleware } = require('http-proxy-middleware');
  
@@ -50,8 +53,8 @@ function App() {
  };
  */
 
-  const products = [
-  ];
+  // const product = [
+  // ];
 
   const handleAddToCart = (selectedProduct) => {
     setCartItems([...cartItems, selectedProduct]);
@@ -61,9 +64,9 @@ function App() {
     setSearchTerm(searchValue);
   };
 
-  const filteredProducts = products.filter(product =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const filteredProducts = product.filter(product =>
+  //   product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
   return (
     <div className="App">
@@ -77,13 +80,15 @@ function App() {
             onQuestions={() => setShowQuestions(true)}
           />
           <main className="main-content">
-            {filteredProducts.map(product => (
-              <ProductCard
-                key={product.id}
-                {...product}
-                onClick={handleAddToCart}
-              />
-            ))}
+            {/* {filteredProducts.map(product => ( */}
+            {/* <ProductCard
+              key={product.id}
+              {...product} */}
+            {/* // onClick={handleAddToCart} */}
+            {/* /> */}
+            {/* ))} */}
+            <ProductCard />
+
           </main>
         </>
       )}
@@ -112,8 +117,12 @@ function App() {
       )}
 
       {showQuestions && (
-        <FeedbackForm onBack={() => setShowQuestions(false)}/>
+        <FeedbackForm onBack={() => setShowQuestions(false)} />
       )}
+
+      {/* {showProducts && (
+        <FeedbackForm onBack={() => setProducts(true)} />
+      )} */}
     </div>
   );
 }

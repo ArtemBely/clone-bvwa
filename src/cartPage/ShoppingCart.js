@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const ShoppingCart = ({ onClose, cartItems }) => {
-  
+
   const [products, setProducts] = useState([]);
   const token = localStorage.getItem('Bearer');
 
@@ -12,13 +12,13 @@ const ShoppingCart = ({ onClose, cartItems }) => {
       'Authorization': `Bearer ${token}`
     }
   })
-  .then(response => response.json())
-  .then(data => {
-    setProducts(data);
-  })
-  .catch(error => {
-    console.error('Ошибка аутентификации:', error);
-  });
+    .then(response => response.json())
+    .then(data => {
+      setProducts(data);
+    })
+    .catch(error => {
+      console.error('Ошибка аутентификации:', error);
+    });
 
 
   return (
@@ -29,21 +29,21 @@ const ShoppingCart = ({ onClose, cartItems }) => {
           {cartItems.map((item, index) => (
             <li key={index}>
               <div>
-                <h3>{item.title}</h3>
-                <p>Description: {item.description}</p>
-                <p>Price: ${item.price}</p>
+                <h3>{item.nazev}</h3>
+                <p>Description: {item.popis}</p>
+                <p>Price: ${item.cena}</p>
               </div>
             </li>
           ))}
         </ul>
         <ul>
-        {products.map((item, index) => ( 
+          {products.map((item, index) => (
             <li key={index}>
-              <img src={item.image} alt={item.title} />
+              <img src={item.image} alt={item.nazev} />
               <div>
-                <h3>{item.title}</h3>
-                <p>Description: {item.description}</p>
-                <p>Price: ${item.price}</p>
+                <h3>{item.nazev}</h3>
+                <p>Description: {item.popis}</p>
+                <p>Price: ${item.cena}</p>
               </div>
             </li>
           ))}
