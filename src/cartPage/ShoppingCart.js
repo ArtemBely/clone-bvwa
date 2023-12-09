@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 const ShoppingCart = ({ onClose, cartItems }) => {
   
   const [products, setProducts] = useState([]);
-  const token = localStorage.getItem('Bearer ');
+  const token = localStorage.getItem('Bearer');
 
-  fetch('http://localhost:8080/api/v1/products', {
+  fetch('/api/v1/products', {
     method: 'GET', // или 'POST', 'PUT' и т.д.
     headers: {
       'Content-Type': 'application/json',

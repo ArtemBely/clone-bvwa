@@ -8,32 +8,24 @@ const LoginPage = ({ onBack, onRegister }) => {
     const handleLogin = async (event) => {
       event.preventDefault();
 
-    try {
-      // Выполнить запрос к API
-      const response = await fetch('http://localhost:8080/api/v1/auth/authenticate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-          // Другие необходимые заголовки
-        },
-        body: JSON.stringify({
-          email,
-          password
-        })
-      });
-      const data = await response.json();
+        try {
+            const response = await fetch('/api/v1/auth/authenticate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
 
-     if(response.ok) {
-        // Сохранение токена в localStorage
-        localStorage.setItem('Bearer ', data.token);
-        // Дополнительные действия после успешной аутентификации, например, перенаправление
-      } else {
-        // Обработка ошибок аутентификации
-        console.error('Ошибка аутентификации:', data);
-      }
-    } catch (error) {
-      console.error('Ошибка запроса:', error);
-    }
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('Bearer', data.token);
+            } else {
+                console.error('Ошибка аутентификации:', await response.text());
+            }
+        } catch (error) {
+            console.error('Ошибка запроса:', error);
+        }
   };
 
     

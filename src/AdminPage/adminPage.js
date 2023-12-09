@@ -10,7 +10,7 @@ const AdminPage = ({ onClose }) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
+      const response = await fetch(`/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

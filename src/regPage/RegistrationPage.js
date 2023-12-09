@@ -14,7 +14,7 @@ const [dateofbirth, setDateofbirth] = useState('');
 
   useEffect(() => {
     const handleStorageChange = () => {
-      setToken(localStorage.getItem('Bearer ') || '');
+      setToken(localStorage.getItem('Bearer') || '');
     };
 
     window.addEventListener('storage', handleStorageChange);
@@ -30,7 +30,7 @@ const [dateofbirth, setDateofbirth] = useState('');
 
   try {
     // Выполнить запрос к API
-    const response = await fetch('http://localhost:8080/api/v1/auth/create', {
+    const response = await fetch('/api/v1/auth/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ const [dateofbirth, setDateofbirth] = useState('');
 
    if(response.ok) {
       // Сохранение токена в localStorage
-      localStorage.setItem('Bearer ', data.token);
+      localStorage.setItem('Bearer', data.token);
       // Дополнительные действия после успешной аутентификации, например, перенаправление
     } else {
       // Обработка ошибок аутентификации

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 const ProductCard = ({ id, title, description, price, image, onClick }) => {
-  const [token, setToken] = useState(localStorage.getItem('Bearer ') || '');
+  const [token, setToken] = useState(localStorage.getItem('Bearer') || '');
   const [isClicked, setIsClicked] = useState(false);
 
   const[nazev, setNazev] = useState('');
@@ -15,7 +15,7 @@ const ProductCard = ({ id, title, description, price, image, onClick }) => {
   useEffect(() => {
     // Обновление состояния при изменении значения в localStorage
     const handleStorageChange = () => {
-      setToken(localStorage.getItem('Bearer ') || '');
+      setToken(localStorage.getItem('Bearer') || '');
     };
 
     // Подписка на событие изменения localStorage
