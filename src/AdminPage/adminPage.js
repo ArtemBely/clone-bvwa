@@ -45,6 +45,7 @@ const AdminPage = ({ onClose }) => {
           <button onClick={onClose} className="close-button">
             Close
           </button>
+          <div> </div>
         </form>
         {foundUser && (
           <div className="user-details">
@@ -54,7 +55,24 @@ const AdminPage = ({ onClose }) => {
             <p>Surname: {foundUser.surname}</p>
             {/* Additional user data */}
           </div>
+
         )}
+      </div>
+      <div
+        style={{
+          backgroundColor: 'white',
+          height: '100px',
+          width: '100%',
+          position: 'fixed',
+          bottom: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <button className="button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>
+          Chat
+        </button>
       </div>
     </div>
   );

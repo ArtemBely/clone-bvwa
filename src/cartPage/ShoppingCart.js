@@ -52,6 +52,22 @@ const ShoppingCart = ({ onClose, cartItems }) => {
           Close
         </button>
       </div>
+      <div
+        style={{
+          backgroundColor: 'white',
+          height: '100px',
+          width: '100%',
+          position: 'fixed',
+          bottom: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <button className="button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>
+          Chat
+        </button>
+      </div>
     </div>
   );
 };

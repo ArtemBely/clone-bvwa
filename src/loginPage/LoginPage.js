@@ -19,7 +19,7 @@ const LoginPage = ({ onBack, onRegister }) => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('Bearer', data.token);
-        window.location.href = '/';
+        window.location.href = '/products';
 
       } else {
         console.error('Ошибка аутентификации:', await response.text());
@@ -38,10 +38,8 @@ const LoginPage = ({ onBack, onRegister }) => {
           <input name="email" type="text" placeholder="Username" value={email} onChange={(e) => setEmail(e.target.value)} />
           <input name="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
           <button type="submit" className="submit-button">Login</button>
-          <button onClick={onRegister} className="register-button">Register</button>
-          <label>
-            <input type="checkbox" /> Do not quit
-          </label>
+          <button className="register-button" ><a href="/register">Register</a></button>
+          <br />
           <button onClick={onBack} className="back-button">Back</button>
         </div>
       </form>
