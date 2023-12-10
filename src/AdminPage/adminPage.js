@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
+import EditUser from '../UserPage/EditUser';
 
 const AdminPage = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [foundUser, setFoundUser] = useState(null);
+  const token = localStorage.getItem('Bearer ') || '';
 
   const handleSearch = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
+      const response = await fetch(`http://localhost:8080/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          // Other necessary headers, such as authorization using a token
+          'Authorization': `Bearer ${token}`
+          // Другие необходимые заголовки, такие как авторизация с помощью токена
         },
       });
 
@@ -25,11 +28,16 @@ const AdminPage = ({ onClose }) => {
       const userData = await response.json();
       setFoundUser(userData);
       console.log('Found user:', userData);
-      // Additional actions after successfully finding the user
+      // Дополнительные действия после успешного поиска пользователя
     } catch (error) {
       console.error('Error searching for user:', error);
     }
   };
+  const handleEditUser = () => {
+    // Перенаправление на страницу редактирования пользователя (EditUser)
+    window.location.href = '/EditUser1234/EditUser'; // Измените путь на ваш нужный маршрут
+  };
+
 
   return (
     <div className="admin-container">
@@ -52,7 +60,7 @@ const AdminPage = ({ onClose }) => {
             <p>Name: {foundUser.name}</p>
             <p>Email: {foundUser.email}</p>
             <p>Surname: {foundUser.surname}</p>
-            {/* Additional user data */}
+            {/* Дополнительные данные о пользователе */}
           </div>
         )}
       </div>

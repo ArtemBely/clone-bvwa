@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/*import React, { useState, useEffect } from 'react';
 
 
 const ProductCard = () => {
@@ -34,10 +34,10 @@ const ProductCard = () => {
   // };
 
   const [prod, setProd] = useState([]);
-  const token = localStorage.getItem('Bearer');
+  const token = localStorage.getItem('Bearer ');
 
   try {
-    fetch('/api/v1/products', {
+    fetch('http://localhost:8080/api/v1/products', {
       method: 'GET', // или 'POST', 'PUT' и т.д.
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const ProductCard = () => {
       {/* <img src={image} alt={title} />
     <h3>{nazev}</h3>
     <p>{popis}</p>
-    <p>Price: ${cena}</p> */}
+    <p>Price: ${cena}</p> }
       {prod.map((item, index) => (
         <li key={index}>
           <div>
@@ -79,3 +79,59 @@ const ProductCard = () => {
   );
 }
 export default ProductCard;
+*/
+
+import React, { useState, useEffect } from 'react';
+
+const ProductCard = () => {
+  const [prod, setProd] = useState([]);
+  const token = localStorage.getItem('Bearer');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/products', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          if (response.status === 401) {
+            // Здесь можно обработать ошибку "token expired"
+            console.error('Ошибка аутентификации: Токен устарел или недействителен');
+            // Выполните здесь действия для обработки истекшего токена, например, перенаправление на страницу входа
+          } else {
+            throw new Error('Ошибка сервера');
+          }
+        }
+
+        const data = await response.json();
+        setProd(data);
+      } catch (error) {
+        console.error('Ошибка запроса:', error);
+      }
+    };
+
+    fetchData();
+  }, [token]);
+
+  return (
+    <div className={'product-card-clicked'}>
+      {prod.map((item, index) => (
+        <li key={index}>
+          <div>
+            <h3>{item.nazev}</h3>
+            <p>Description: {item.popis}</p>
+            <p>Price: ${item.cena}</p>
+          </div>
+        </li>
+      ))}
+    </div>
+  );
+};
+
+export default ProductCard;
+

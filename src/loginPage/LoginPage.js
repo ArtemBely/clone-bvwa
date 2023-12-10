@@ -18,7 +18,7 @@ const LoginPage = ({ onBack, onRegister }) => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('Bearer', data.token);
+        localStorage.setItem('Bearer ', data.token);
         window.location.href = '/';
 
       } else {
