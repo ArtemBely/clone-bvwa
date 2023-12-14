@@ -9,6 +9,7 @@ import ProductList from './productCard/ProductCard';
 import fastFoodLogo from './images/fastfoodlogo.jpg';
 import AdminPage from './AdminPage/adminPage';
 import ProductCard from './productCard/ProductCard';
+import UserEdit from './userEditPage/UserEdit';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
+            <Route path="/useredit" element={<UserEdit />} />
             {/* Другие маршруты */}
           </Routes>
         </main>
