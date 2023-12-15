@@ -64,7 +64,6 @@ body {
 
 /* Content styles */
 .main-content {
-  display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   padding: 1rem;
@@ -159,15 +158,13 @@ body {
 
 /* Styles for the LoginPage component */
 .login-container {
-  /* Use a trendy background image or color */
-  /* Replace 'your-background-image-url.jpg' with your image URL */
-  /* For color background: background-color: #f5f5f5; */
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Aligns children to the start of the container's main axis */
   align-items: center;
-  margin: 0 80%;
+  margin: 0; /* Resets any margin */
+  position: relative;
 }
 
 .login-window {
@@ -176,6 +173,7 @@ body {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 80%;
 }
 
 .login-window h2 {
@@ -279,7 +277,16 @@ body {
 }
 
 .product-card-clicked {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Example: Adding a box shadow */
-  /* or */
-  border: 2px solid #007bff; /* Example: Adding a border */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+  border: 2px solid #007bff; */
+}
+.products-list {
+  display: flex;
+  justify-content: flex-start; /* Aligns children to the start of the container's main axis */
+  align-items: center;
+  gap: 10px;
+}
+li {
+  list-style: none;
 }

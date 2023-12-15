@@ -10,6 +10,7 @@ import fastFoodLogo from './images/fastfoodlogo.jpg';
 import AdminPage from './AdminPage/adminPage';
 import ProductCard from './productCard/ProductCard';
 import UserEdit from './userEditPage/UserEdit';
+import UserPage from './userPage/UserPage';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
-            <Route path="/useredit" element={<UserEdit />} />
+            <Route path="/useredit" element={<UserPage />} />
             {/* Другие маршруты */}
           </Routes>
         </main>

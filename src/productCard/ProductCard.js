@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fastFoodLogo from '../images/fastfoodlogo.jpg';
 
-const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn, userName }) => (
+const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn, userName, onUserClick }) => (
   <header className="header">
-    <div className="logo">
-      <img src={fastFoodLogo} alt="Fast Food Logo" />
-    </div>
     <input
       className="search"
       type="text"
       placeholder="Searching"
       onChange={(e) => onSearch(e.target.value)}
     />
+    <div className="logo">
+      <img src={fastFoodLogo} alt="Fast Food Logo" class="logojpg" />
+    </div>
     <button className="button cart" onClick={onCartClick}>
       Shopping cart
     </button>
     {isLoggedIn ? (
-      <span className="user-name">Hello, {userName}</span>
+      <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
     ) : (
       <button className="button login" onClick={onLoginClick}>
         Login
@@ -61,6 +61,9 @@ const ProductCard = () => {
   const handleAdminClick = () => {
     navigate('/admin');
   };
+  const handleUSerClick = () => {
+    navigate('/user');
+  };
 
   useEffect(() => {
     const token = localStorage.getItem('Bearer'); // Определяем token здесь
@@ -95,15 +98,18 @@ const ProductCard = () => {
         onAdminClick={handleAdminClick}
         isLoggedIn={isLoggedIn}
         userName={userName}
+        onUserClick={handleUSerClick}
       />
       {prod.map((item, index) => (
-        <li key={index}>
-          <div>
-            <h3>{item.nazev}</h3>
-            <p>Description: {item.popis}</p>
-            <p>Price: ${item.cena}</p>
-          </div>
-        </li>
+        <div className='products-list'>
+          <li key={index} >
+            <div>
+              <h3>{item.nazev}</h3>
+              <p>Description: {item.popis}</p>
+              <p>Price: ${item.cena}</p>
+            </div>
+          </li>
+        </div>
       ))}
       <div style={{
         backgroundColor: 'white',
