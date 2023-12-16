@@ -11,6 +11,10 @@ ul {
   padding: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 body {
   font-family: Arial, sans-serif;
 }
@@ -37,9 +41,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  font-weight: bold;
-}
+
 
 .search {
   margin: 0 1rem;
@@ -88,7 +90,7 @@ body {
 .product-card input[type="text"],
 .product-card input[type="password"],
 .register-window input {
-  width: 100%;
+  width: 80%;
   padding: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
@@ -109,7 +111,7 @@ body {
 
 .product-card .submit-button {
   background-color: #424242;
-  color: black;
+  color: white;
 }
 
 .register-window .register-button {
@@ -183,7 +185,7 @@ body {
 
 .login-window input[type="text"],
 .login-window input[type="password"] {
-  width: 100%;
+  width: 80%;
   padding: 0.8rem;
   margin-bottom: 1.5rem;
   border: 1px solid #ccc; /* Input border color */
@@ -192,11 +194,15 @@ body {
   color: #333; /* Input text color */
 }
 
+.login-window .register-button a{
+  color: #333;
+}
+
 .submit-button {
   padding: 0.8rem 1rem;
   border: none;
   border-radius: 4px;
-  background-color: #4285f4; /* Google Blue */
+  background-color: #424242; /* Google Blue */
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth transition */
@@ -208,7 +214,7 @@ body {
 
 .back-button {
   background-color: transparent;
-  color: #4285f4; /* Google Blue */
+  color: #424242; /* Google Blue */
   border: 1px solid #4285f4; /* Border matching button color */
   padding: 0.8rem 1rem;
   border-radius: 4px;
@@ -251,7 +257,7 @@ body {
 }
 
 .logo img {
-  width: 64px; /* Adjust the width of the image */
+  width: 204px; /* Adjust the width of the image */
   height: auto; /* Maintain aspect ratio */
 }
 
