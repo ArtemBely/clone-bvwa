@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-
+import { useNavigate } from 'react-router-dom';
 
 const UserEdit = () => {
     const [user, setUser] = useState({
@@ -11,6 +10,8 @@ const UserEdit = () => {
         password: '',
         confirmPassword: ''
     });
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -18,10 +19,30 @@ const UserEdit = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Здесь можно добавить логику проверки пароля
         if (user.password === user.confirmPassword) {
-            // Отправить данные
-            console.log('User data submitted:', user);
+            fetch('/api/v1/user/1', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Include authorization token if required
+                    // 'Authorization': 'Bearer YOUR_TOKEN_HERE'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('User data updated:', data);
+                    alert('User data successfully updated');
+                })
+                .catch(error => {
+                    setError(error.message);
+                    navigate('/error', { state: { error: error.message } });
+                });
         } else {
             alert('Пароли не совпадают');
         }
@@ -29,48 +50,7 @@ const UserEdit = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="name"
-                value={user.name}
-                onChange={handleChange}
-                placeholder="Name"
-            />
-            <input
-                type="text"
-                name="surname"
-                value={user.surname}
-                onChange={handleChange}
-                placeholder="Surname"
-            />
-            <input
-                type="email"
-                name="email"
-                value={user.email}
-                onChange={handleChange}
-                placeholder="Email"
-            />
-            <input
-                type="tel"
-                name="phone"
-                value={user.phone}
-                onChange={handleChange}
-                placeholder="Phone"
-            />
-            <input
-                type="password"
-                name="password"
-                value={user.password}
-                onChange={handleChange}
-                placeholder="Password"
-            />
-            <input
-                type="password"
-                name="confirmPassword"
-                value={user.confirmPassword}
-                onChange={handleChange}
-                placeholder="Confirm Password"
-            />
+            {/* ... input fields ... */}
             <button type="submit">Save Changes</button>
         </form>
     );

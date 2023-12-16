@@ -37,6 +37,8 @@ const ProductCard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
   const [prod, setProd] = useState([]);
+  const [error, setError] = useState('');
+  const [filteredProd, setFilteredProd] = useState([]);
 
   const navigate = useNavigate();
 
@@ -65,28 +67,36 @@ const ProductCard = () => {
     navigate('/user');
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem('Bearer'); // Определяем token здесь
 
-    try {
-      fetch('/api/v1/products', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+  useEffect(() => {
+    // Fetch products logic here
+    const token = localStorage.getItem('Bearer');
+    fetch('/api/v1/products', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        setProd(data);
+        setFilteredProd(data); // Initialize filtered products with all products
       })
-        .then(response => response.json())
-        .then(data => {
-          setProd(data);
-        })
-        .catch(error => {
-          console.error('Ошибка аутентификации:', error);
-        });
-    } catch (error) {
-      console.error('Ошибка запроса:', error);
-    }
+      .catch(error => {
+        setError(error.message);
+        navigate('/error', { state: { error: error.message } });
+      });
   }, []);
+  useEffect(() => {
+    // Search filter logic
+    const filtered = prod.filter(item =>
+      item.nazev.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.popis.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProd(filtered);
+  }, [searchTerm, prod]);
+
 
 
   return (
@@ -94,23 +104,23 @@ const ProductCard = () => {
       <Header
         onLoginClick={() => setShowLogin(true)}
         onCartClick={() => setShowCart(true)}
-        onSearch={handleSearch}
+        onSearch={setSearchTerm}
         onAdminClick={handleAdminClick}
         isLoggedIn={isLoggedIn}
         userName={userName}
         onUserClick={handleUSerClick}
       />
-      {prod.map((item, index) => (
-        <div className='products-list'>
-          <li key={index} >
-            <div>
-              <h3>{item.nazev}</h3>
-              <p>Description: {item.popis}</p>
-              <p>Price: ${item.cena}</p>
-            </div>
-          </li>
-        </div>
-      ))}
+      <div className='products-list'>
+        {filteredProd.map((item, index) => (
+          <div key={index}>
+            <h3>{item.nazev}</h3>
+            <p>Description: {item.popis}</p>
+            <p>Price: ${item.cena}</p>
+            {/* Add to Cart button logic */}
+          </div>
+        ))}
+      </div>
+
       <div style={{
         backgroundColor: 'white',
         height: '100px',

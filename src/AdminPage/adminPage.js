@@ -1,83 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AdminPage = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [foundUser, setFoundUser] = useState(null);
+  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/v1/users', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            // Add necessary headers, e.g., for authorization
+          },
+        });
 
-    try {
-      const response = await fetch(`/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          // Добавьте необходимые заголовки, например, для авторизации
-        },
-      });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
       }
+    };
 
-      const userData = await response.json();
-      setFoundUser(userData);
-      console.log('Found user:', userData);
-    } catch (error) {
-      console.error('Error searching for user:', error);
-    }
-  };
+    fetchData();
+  }, []);
 
-  const handleEditUser = () => {
-    navigate('/useredit', { state: { user: foundUser } }); // Перенаправление на страницу редактирования пользователя
+  const handleEditUser = (user) => {
+    navigate('/useredit', { state: { user } }); // Redirect to the user edit page
   };
 
   const handleClose = () => {
-    navigate('/products'); // Перенаправление на страницу продуктов
+    navigate('/products'); // Redirect to the products page
   };
 
   return (
     <div className="admin-container">
       <div className="admin-window">
         <h2>Admin Page</h2>
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Surname"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button type="submit" className="search-button">Search</button>
-          <button onClick={handleClose} className="close-button">Close</button>
-        </form>
-
-        {foundUser && (
-          <div className="user-details">
-            <h3>User Details:</h3>
-            <p>Name: {foundUser.name}</p>
-            <p>Surname: {foundUser.surname}</p>
-            <p>Email: {foundUser.email}</p>
-            <button onClick={handleEditUser} className="edit-user-button">
-              Edit User
-            </button>
-          </div>
-        )}
+        <div className="users-list">
+          {users.map((user, index) => (
+            <div key={index} className="user-details">
+              <h3>User Details:</h3>
+              <p>ID: {user.id}</p>
+              <p>Name: {user.name}</p>
+              <p>Surname: {user.surname}</p>
+              <p>Email: {user.email}</p>
+              <p>Username: {user.username}</p>
+              <p>Role: {user.role}</p>
+              {/* Include other fields as necessary */}
+              <button onClick={() => handleEditUser(user)} className="edit-user-button">
+                Edit User
+              </button>
+            </div>
+          ))}
+        </div>
+        <button onClick={handleClose} className="close-button">Close</button>
       </div>
 
       <div style={{
