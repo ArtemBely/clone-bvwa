@@ -4,32 +4,27 @@ import { useNavigate } from 'react-router-dom';
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const userToken = localStorage.getItem('Bearer');
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/api/v1/users', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            // Add necessary headers, e.g., for authorization
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        console.error('Error fetching users:', error);
+    const token = localStorage.getItem('Bearer');
+    fetch('api/v1/users/', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token} `
       }
-    };
-
-    fetchData();
+    })
+      .then(response => response.json())
+      .then(data => {
+        setUsers(data);
+      })
+      .catch(error => {
+        setError(error.message);
+        navigate('/error', { state: { error: error.message } });
+      });
   }, []);
-
   const handleEditUser = (user) => {
     navigate('/useredit', { state: { user } }); // Redirect to the user edit page
   };
@@ -42,24 +37,24 @@ const AdminPage = () => {
     <div className="admin-container">
       <div className="admin-window">
         <h2>Admin Page</h2>
+        <button onClick={handleClose} className="close-button">Close</button>
         <div className="users-list">
           {users.map((user, index) => (
             <div key={index} className="user-details">
               <h3>User Details:</h3>
-              <p>ID: {user.id}</p>
               <p>Name: {user.name}</p>
               <p>Surname: {user.surname}</p>
               <p>Email: {user.email}</p>
-              <p>Username: {user.username}</p>
-              <p>Role: {user.role}</p>
+              <p>Date of birth:{user.dateofbirth}</p>
+
               {/* Include other fields as necessary */}
               <button onClick={() => handleEditUser(user)} className="edit-user-button">
                 Edit User
               </button>
+              <hr />
             </div>
           ))}
         </div>
-        <button onClick={handleClose} className="close-button">Close</button>
       </div>
 
       <div style={{

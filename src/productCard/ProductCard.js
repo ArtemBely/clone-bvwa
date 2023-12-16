@@ -115,7 +115,7 @@ const ProductCard = () => {
           <div key={index}>
             <h3>{item.nazev}</h3>
             <p>Description: {item.popis}</p>
-            <p>Price: ${item.cena}</p>
+            <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
           </div>
         ))}
