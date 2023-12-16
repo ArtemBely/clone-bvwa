@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fastFoodLogo from '../images/LOGO.png';
+import logousernot from '../images/logo_user_not.png';
 
 const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn, userName, onUserClick }) => (
   <header className="header">
+    
     <input
       className="search"
       type="text"
@@ -13,19 +15,26 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn,
     <div className="logo">
       <img src={fastFoodLogo} alt="Fast Food Logo" />
     </div>
+    
+    
+    <div className="popopo">
     <button className="button cart" onClick={onCartClick}>
       Shopping cart
     </button>
-    {isLoggedIn ? (
-      <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
-    ) : (
-      <button className="button login" onClick={onLoginClick}>
-        Login
+
+      <button className="button admin" onClick={onAdminClick}>
+        Admin
       </button>
-    )}
-    <button className="button admin" onClick={onAdminClick}>
-      Admin
-    </button>
+      
+      {isLoggedIn ? (
+        <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
+      ) : (
+        <button className="button-login" onClick={onLoginClick}>
+          <img src={logousernot} alt = "logo"/>
+          Login
+        </button>
+      )}
+    </div>
   </header>
 );
 

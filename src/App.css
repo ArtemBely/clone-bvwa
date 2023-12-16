@@ -36,12 +36,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 
+.popopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.popopo button{
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.admin{
+  background-color: transparent;
+}
+
+.button-login img{
+  margin-right: 5px;
+}
+
+.button-login {
+  color: #f0bf11;
+  box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
+
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+}
 
 .search {
   margin: 0 1rem;
@@ -57,11 +83,6 @@ body {
 
 .cart {
   background-color: #eee;
-}
-
-.login {
-  background-color: #007bff;
-  color: white;
 }
 
 /* Content styles */
@@ -251,13 +272,12 @@ body {
 /* Styles for the logo image */
 .logo {
   position: absolute;
-  top: 1px; /* Adjust the distance from the top */
   left: 300px; /* Adjust the distance from the left */
   transform: translateX(-50%); /* Center the logo horizontally */
 }
 
 .logo img {
-  width: 204px; /* Adjust the width of the image */
+  width: 154px; /* Adjust the width of the image */
   height: auto; /* Maintain aspect ratio */
 }
 
