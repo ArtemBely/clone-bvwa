@@ -39,10 +39,28 @@ body {
   background-color: transparent;
 }
 
+.header .cart {
+  font-size: 15px;
+
+  background-color: #ffffffcc;
+  display: flex;
+  align-items: center;
+}
+
+.header .cart img{
+  margin-right: 5px;
+  width: auto;
+  height: 30px;
+}
+
 .popopo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.header .ll{
+  background-color: #cccccc3a;
 }
 
 .popopo button{
@@ -52,15 +70,23 @@ body {
   margin-left: 10px;
 }
 
+.cart{
+  margin-right: 400px;
+}
+
 .admin{
   background-color: transparent;
 }
 
 .button-login img{
   margin-right: 5px;
+  width: auto;
+  height: 45px;
 }
 
 .button-login {
+  
+  font-size: 20px;
   color: #f0bf11;
   box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
 

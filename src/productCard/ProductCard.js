@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fastFoodLogo from '../images/LOGO.png';
 import logousernot from '../images/logo_user_not.png';
+import shipCard from '../images/shopping_cart_icon.png';
 
 const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn, userName, onUserClick }) => (
   <header className="header">
@@ -19,17 +20,18 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn,
     
     <div className="popopo">
     <button className="button cart" onClick={onCartClick}>
-      Shopping cart
+      <img src={shipCard} alt="card"/>
+      
     </button>
 
       <button className="button admin" onClick={onAdminClick}>
         Admin
       </button>
-      
+
       {isLoggedIn ? (
         <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
       ) : (
-        <button className="button-login" onClick={onLoginClick}>
+        <button className="button-login ll" onClick={onLoginClick}>
           <img src={logousernot} alt = "logo"/>
           Login
         </button>
