@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import fastFoodLogo from '../images/fastfoodlogo.jpg';
+import fastFoodLogo from '../images/LOGO.png';
 
 const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn, userName, onUserClick }) => (
   <header className="header">
@@ -11,7 +11,7 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn,
       onChange={(e) => onSearch(e.target.value)}
     />
     <div className="logo">
-      <img src={fastFoodLogo} alt="Fast Food Logo" class="logojpg" />
+      <img src={fastFoodLogo} alt="Fast Food Logo" />
     </div>
     <button className="button cart" onClick={onCartClick}>
       Shopping cart
