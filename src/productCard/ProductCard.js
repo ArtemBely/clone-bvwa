@@ -83,8 +83,13 @@ const ProductCard = () => {
     })
       .then(response => response.json())
       .then(data => {
-        setProd(data);
-        setFilteredProd(data); // Initialize filtered products with all products
+       // Update product objects with image paths
+       const updatedData = data.map((item, index) => ({
+        ...item,
+        image: `..src/images/image${index + 1}.jpg` // Пример пути к изображению
+      }));
+      setProd(updatedData);
+      setFilteredProd(updatedData); // Initialize filtered products with all products
       })
       .catch(error => {
         setError(error.message);
@@ -116,7 +121,9 @@ const ProductCard = () => {
       <div className='products-list'>
         {filteredProd.map((item, index) => (
           <div key={index}>
+      
             <h3>{item.nazev}</h3>
+            <img src={item.image} alt={item.nazev} />
             <p>Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
