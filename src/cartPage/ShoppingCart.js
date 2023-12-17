@@ -5,7 +5,7 @@ const ShoppingCart = ({ onClose, cartItems }) => {
   const [products, setProducts] = useState([]);
   const token = localStorage.getItem('Bearer');
 
-  fetch('/api/v1/products', {
+  fetch('/api/v1/kosik/get', {
     method: 'GET', // или 'POST', 'PUT' и т.д.
     headers: {
       'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const ShoppingCart = ({ onClose, cartItems }) => {
         <ul>
           {products.map((item, index) => (
             <li key={index}>
-              <img src={item.image} alt={item.nazev} />
+              {/* <img src={item.image} alt={item.nazev} /> */}
               <div>
                 <h3>{item.nazev}</h3>
                 <p>Description: {item.popis}</p>

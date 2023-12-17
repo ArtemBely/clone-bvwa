@@ -25,6 +25,7 @@ function App() {
             <Route path="/useredit" element={<UserEdit />} />
             <Route path="/cart" element={<ShoppingCart />} />
             <Route path="/user" element={<UserPage />} />
+            <Route path="/cart" element={<ShoppingCart />} />
             {/* Другие маршруты */}
           </Routes>
         </main>

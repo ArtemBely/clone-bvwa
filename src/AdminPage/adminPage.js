@@ -45,6 +45,7 @@ const AdminPage = () => {
               <p>Name: {user.name}</p>
               <p>Surname: {user.surname}</p>
               <p>Email: {user.email}</p>
+              <p>Phone: {user.phone}</p>
               <p>Date of birth:{user.dateofbirth}</p>
 
               {/* Include other fields as necessary */}
@@ -58,7 +59,7 @@ const AdminPage = () => {
       </div>
 
       <div style={{
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         height: '100px',
         width: '100%',
         position: 'fixed',

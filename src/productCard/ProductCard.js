@@ -17,7 +17,7 @@ const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn,
       Shopping cart
     </button>
     {isLoggedIn ? (
-      <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
+      <button className="user-name" onClick={onUserClick}> {userName}</button>
     ) : (
       <button className="button login" onClick={onLoginClick}>
         Login
@@ -42,13 +42,14 @@ const ProductCard = () => {
 
   const navigate = useNavigate();
 
+
   useEffect(() => {
     // Здесь должна быть логика для проверки, вошел ли пользователь
     const userToken = localStorage.getItem('Bearer');
     if (userToken) {
       setIsLoggedIn(true);
       // Замените это на получение имени пользователя из вашего источника данных
-      setUserName('John Doe');
+      setUserName('Profile');
     }
   }, []);
 
@@ -66,7 +67,9 @@ const ProductCard = () => {
   const handleUSerClick = () => {
     navigate('/user');
   };
-
+  const handleCartClick = () => {
+    navigate('/cart');
+  };
 
   useEffect(() => {
     // Fetch products logic here
@@ -103,12 +106,12 @@ const ProductCard = () => {
     <div className={'product-card-clicked'}>
       <Header
         onLoginClick={() => setShowLogin(true)}
-        onCartClick={() => setShowCart(true)}
         onSearch={setSearchTerm}
         onAdminClick={handleAdminClick}
         isLoggedIn={isLoggedIn}
         userName={userName}
         onUserClick={handleUSerClick}
+        onCartClick={handleCartClick}
       />
       <div className='products-list'>
         {filteredProd.map((item, index) => (

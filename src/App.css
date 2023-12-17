@@ -296,3 +296,7 @@ body {
 li {
   list-style: none;
 }
+.profilePhoto {
+  width: 100px;
+  height: 100px;
+}
