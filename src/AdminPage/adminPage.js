@@ -58,16 +58,7 @@ const AdminPage = () => {
         </div>
       </div>
 
-      <div style={{
-        backgroundColor: 'transparent',
-        height: '100px',
-        width: '100%',
-        position: 'fixed',
-        bottom: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+      <div className="questions" >
         <button className="button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>
           Chat
         </button>

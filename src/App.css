@@ -110,11 +110,13 @@ body {
 }
 
 
+
+
 .questions{
   background-color: #424242;
   height: 100px;
   width: 100%;
-  position: absolute;
+  position: static;
   bottom: 0;
   left: 0;
   display: flex;
@@ -453,6 +455,20 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
+.admin-window h2{
+    margin-left: 100px;
+}
+
+.close-button{
+  margin-top: 20px;
+  margin-left: 100px;
+  font-size: 25px;
+}
+
+.edit-user-button{
+  background-color: #9b0000;
+  font-size: large;
+}
 
 .products-list {
   margin-top: 50px;
@@ -468,7 +484,11 @@ body {
   margin: 25px;
   font-size: 25px;
   color: #f0bf11;
-  
+}
+
+.products-list img{
+  height: 150px;
+  width: auto;
 }
 
 .products-list p{

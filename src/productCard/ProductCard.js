@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import fastFoodLogo from '../images/LOGO.png';
 import logousernot from '../images/logo_user_not.png';
 import shipCard from '../images/shopping_cart_icon.png';
-
+import im1 from '../images/image1.jpg';
 
 const Header = ({ 
   onLoginClick, 
@@ -114,7 +114,7 @@ const ProductCard = () => {
        // Update product objects with image paths
        const updatedData = data.map((item, index) => ({
         ...item,
-        image: `images/image${index + 1}.jpg` // Пример пути к изображению
+        image: im1
       }));
       setProd(updatedData);
       setFilteredProd(updatedData); // Initialize filtered products with all products
