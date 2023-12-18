@@ -175,7 +175,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   border: 1px solid #ddd;
-  margin: 10% 30%;
+  margin: 33% 77%;
 }
 
 /* Form input styles */
@@ -382,62 +382,4 @@ body {
 }
 li {
   list-style: none;
-}
-.profilePhoto {
-  width: 100px;
-  height: 100px;
-}
-
-/* Adaptive for the shit*/
-
-
-
-/* Example of media query for mobile devices */
-@media only screen and (max-width: 600px) {
-  /* CSS styles specific for mobile devices */
-  /* ... */
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* For Apple iPhone devices */
-@media only screen 
-  and (min-device-width: 375px) /* iPhone 6, 6S, 7, 8, X, XS, 11 Pro */
-  and (max-device-width: 812px)
-  and (-webkit-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-  /* CSS styles specific to iPhone devices */
-  /* Add your styles here */
-}
-
-/* For new Samsung Galaxy devices */
-@media only screen 
-  and (min-device-width: 360px) /* Galaxy S6, S7, S8, S9, S10 */
-  and (max-device-width: 740px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-  /* CSS styles specific to Samsung Galaxy devices */
-  /* Add your styles here */
-}
-
-.container-flex {
-  display: flex;
-  flex-direction: row; /* or column */
-  justify-content: space-between; /* or other values */
-  align-items: center; /* or other values */
-}
-
-.container-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Three columns with fractional sizes */
-  grid-template-rows: auto; /* Auto-sized rows */
-  gap: 20px; /* Gap between grid items */
-}
-
-.item {
-  grid-column: span 2; /* Item spans two columns */
-  grid-row: 1; /* Item is placed in the first row */
 }

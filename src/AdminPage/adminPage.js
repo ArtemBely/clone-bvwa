@@ -1,65 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AdminPage = () => {
-  const [users, setUsers] = useState([]);
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [foundUser, setFoundUser] = useState(null);
   const navigate = useNavigate();
-  const userToken = localStorage.getItem('Bearer');
-  const [error, setError] = useState('');
 
-  useEffect(() => {
-    const token = localStorage.getItem('Bearer');
-    fetch('api/v1/users/', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token} `
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        setUsers(data);
-      })
-      .catch(error => {
-        setError(error.message);
-        navigate('/error', { state: { error: error.message } });
+  const handleSearch = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(`/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          // Добавьте необходимые заголовки, например, для авторизации
+        },
       });
-  }, []);
-  const handleEditUser = (user) => {
-    navigate('/useredit', { state: { user } }); // Redirect to the user edit page
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const userData = await response.json();
+      setFoundUser(userData);
+      console.log('Found user:', userData);
+    } catch (error) {
+      console.error('Error searching for user:', error);
+    }
+  };
+
+  const handleEditUser = () => {
+    navigate('/useredit', { state: { user: foundUser } }); // Перенаправление на страницу редактирования пользователя
   };
 
   const handleClose = () => {
-    navigate('/products'); // Redirect to the products page
+    navigate('/products'); // Перенаправление на страницу продуктов
   };
 
   return (
     <div className="admin-container">
       <div className="admin-window">
         <h2>Admin Page</h2>
-        <button onClick={handleClose} className="close-button">Close</button>
-        <div className="users-list">
-          {users.map((user, index) => (
-            <div key={index} className="user-details">
-              <h3>User Details:</h3>
-              <p>Name: {user.name}</p>
-              <p>Surname: {user.surname}</p>
-              <p>Email: {user.email}</p>
-              <p>Phone: {user.phone}</p>
-              <p>Date of birth:{user.dateofbirth}</p>
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Surname"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button type="submit" className="search-button">Search</button>
+          <button onClick={handleClose} className="close-button">Close</button>
+        </form>
 
-              {/* Include other fields as necessary */}
-              <button onClick={() => handleEditUser(user)} className="edit-user-button">
-                Edit User
-              </button>
-              <hr />
-            </div>
-          ))}
-        </div>
+        {foundUser && (
+          <div className="user-details">
+            <h3>User Details:</h3>
+            <p>Name: {foundUser.name}</p>
+            <p>Surname: {foundUser.surname}</p>
+            <p>Email: {foundUser.email}</p>
+            <button onClick={handleEditUser} className="edit-user-button">
+              Edit User
+            </button>
+          </div>
+        )}
       </div>
 
       <div style={{
-        backgroundColor: 'transparent',
+        backgroundColor: 'white',
         height: '100px',
         width: '100%',
         position: 'fixed',

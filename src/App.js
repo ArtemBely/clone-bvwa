@@ -21,10 +21,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
-            <Route path="/useredit" element={<UserEdit />} />
-            <Route path="/cart" element={<ShoppingCart />} />
-            <Route path="/user" element={<UserPage />} />
-            <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/useredit" element={<UserPage />} />
             {/* Другие маршруты */}
           </Routes>
         </main>
