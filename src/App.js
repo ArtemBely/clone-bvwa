@@ -24,9 +24,9 @@ function App() {
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
             <Route path="/useredit" element={<UserEdit />} />
-            <Route path="/cart" element={<ShoppingCart />} />
+            {/* <Route path="/cart" element={<ShoppingCart />} /> */}
             <Route path="/user" element={<UserPage />} />
-            <Route path="/cart" element={<ShoppingCart />} />
+            {/* <Route path="/cart" element={<ShoppingCart />} /> */}
             <Route path="/error" element={<ErrorPage />} />
             {/* Другие маршруты */}
           </Routes>

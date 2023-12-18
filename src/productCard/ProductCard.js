@@ -13,23 +13,17 @@ import image4 from '../images/image4.jpg';
 import image5 from '../images/image5.jpg';
 import image6 from '../images/image6.jpg';
 
-import image1 from '../images/image1.jpg';
-import image2 from '../images/image2.jpg';
-import image3 from '../images/image3.jpg';
-import image4 from '../images/image4.jpg';
-import image5 from '../images/image5.jpg';
-import image6 from '../images/image6.jpg';
 
 
 
-const Header = ({ 
-  onLoginClick, 
-  onCartClick, 
-  onSearch, 
-  onAdminClick, 
-  isLoggedIn, 
-  userName, 
-  onUserClick 
+const Header = ({
+  onLoginClick,
+  onCartClick,
+  onSearch,
+  onAdminClick,
+  isLoggedIn,
+  userName,
+  onUserClick
 }) => (
   <header className="header">
     <div className="start-head">
@@ -44,28 +38,28 @@ const Header = ({
     <div className="logo">
       <img src={fastFoodLogo} alt="Fast Food Logo" />
     </div>
-    
+
     <div className="popopo">
       {/* <button className="button cart" onClick={onCartClick}>
         <img src={shipCard} alt="card"/>
       </button> */}
 
-        <button className="button admin" onClick={onAdminClick}>
-          Admin
+      <button className="button admin" onClick={onAdminClick}>
+        Admin
+      </button>
+
+      {isLoggedIn ? (
+        <button className="button-login" onClick={onUserClick}>
+          <img src={logousernot} alt="logo" />
+          {userName}
         </button>
 
-        {isLoggedIn ? (
-          <button className="button-login" onClick={onUserClick}>
-            <img src={logousernot} alt = "logo"/>
-             {userName}
-          </button>
-          
-        ) : (
-          <button className="button-login " onClick={onLoginClick}>
-            <img src={logousernot} alt = "logo"/>
-            Login
-          </button>
-        )}
+      ) : (
+        <button className="button-login " onClick={onLoginClick}>
+          <img src={logousernot} alt="logo" />
+          Login
+        </button>
+      )}
     </div>
   </header>
 );
@@ -82,11 +76,11 @@ const ProductCard = () => {
   const [filteredProd, setFilteredProd] = useState([]);
   const [cartItemsActive, setCartItensActive] = useState([]);
 
-  const[imageDef, setImageDef]=useState([]);
+  const [imageDef, setImageDef] = useState([]);
 
   const navigate = useNavigate();
 
-  const [imageDef, setImageDef] = useState([]);
+
 
   useEffect(() => {
     // Здесь должна быть логика для проверки, вошел ли пользователь
@@ -96,8 +90,8 @@ const ProductCard = () => {
       // Замените это на получение имени пользователя из вашего источника данных
       setUserName('Profile');
     }
-    
-setImageDef([image1, image2, image3, image4, image5, image6]);
+
+    setImageDef([image1, image2, image3, image4, image5, image6]);
   }, []);
 
   const handleAddToCart = (selectedProduct) => {
@@ -108,8 +102,8 @@ setImageDef([image1, image2, image3, image4, image5, image6]);
     setSearchTerm(searchValue);
   };
 
-  
-const addToCard = (item) => {
+
+  const addToCard = (item) => {
     console.log(item.nazev);
     setCartItensActive([...cartItemsActive, item]);
   }
@@ -138,17 +132,13 @@ const addToCard = (item) => {
     })
       .then(response => response.json())
       .then(data => {
-       // Update product objects with image paths
-       const updatedData = data.map((item, index) => ({
-        ...item,
-<<<<<<< HEAD
-        image: `../images/image${index + 1}.jpg` // Исправленный путь к изображению
-=======
-        image: `../images/image${index + 1}.jpg`
->>>>>>> 414d2feed3aa33934ecd1df313827e686b5b08a0
-      }));
-      setProd(updatedData);
-      setFilteredProd(updatedData); // Initialize filtered products with all products
+        // Update product objects with image paths
+        const updatedData = data.map((item, index) => ({
+          ...item,
+          image: `../images/image${index + 1}.jpg` // Исправленный путь к изображению
+        }));
+        setProd(updatedData);
+        setFilteredProd(updatedData); // Initialize filtered products with all products
       })
       .catch(error => {
         setError(error.message);
@@ -193,26 +183,22 @@ const addToCard = (item) => {
           />
         </div>
       </div>
-      
+
 
 
       <div >
         {filteredProd.map((item, index) => (
-          <div key={index}className='products-list'>
+          <div key={index} className='products-list'>
 
             <h3>{item.nazev}</h3>
-<<<<<<< HEAD
-            {/* <img src={item.image} alt={item.nazev} /> */}
-=======
->>>>>>> 414d2feed3aa33934ecd1df313827e686b5b08a0
             <img src={imageDef[index]} alt={item.nazev} />
             <p>Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
             <button onClick={() => addToCard(item)}>Add to cart</button>
-          </div>
+          </div >
         ))}
-      </div>
+      </div >
 
       <div className='caaaaard'>
         {cartItemsActive && cartItemsActive.length > 0 && (
@@ -225,7 +211,7 @@ const addToCard = (item) => {
           Chat
         </button>
       </div>
-    </div>
+    </div >
   );
 };
 
