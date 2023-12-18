@@ -17,7 +17,7 @@ function App() {
 
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<RegisterPage />} />
+            <Route path="/" element={<ShoppingCart />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
