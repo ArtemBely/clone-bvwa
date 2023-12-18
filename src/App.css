@@ -83,7 +83,11 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   border: 1px solid #ddd;
-  margin: 10% 30%;
+  margin: 13% 40%;
+}
+
+.register-window h2{
+  margin-bottom: 20px;
 }
 
 /* Form input styles */

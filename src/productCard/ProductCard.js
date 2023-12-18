@@ -1,31 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fastFoodLogo from '../images/LOGO.png';
+import logousernot from '../images/logo_user_not.png';
+import shipCard from '../images/shopping_cart_icon.png';
 
-const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn, userName, onUserClick }) => (
+const Header = ({ 
+  onLoginClick, 
+  onCartClick, 
+  onSearch, 
+  onAdminClick, 
+  isLoggedIn, 
+  userName, 
+  onUserClick 
+}) => (
   <header className="header">
-    <input
+    <div className="start-head">
+
+    </div>
+    {/*<input
       className="search"
       type="text"
       placeholder="Searching"
-      onChange={(e) => onSearch(e.target.value)}
-    />
+      //onChange={(e) => onSearch(e.target.value)}
+/>*/}
     <div className="logo">
       <img src={fastFoodLogo} alt="Fast Food Logo" />
     </div>
-    <button className="button cart" onClick={onCartClick}>
-      Shopping cart
-    </button>
-    {isLoggedIn ? (
-      <button className="user-name" onClick={onUserClick}> {userName}</button>
-    ) : (
-      <button className="button login" onClick={onLoginClick}>
-        Login
+    
+    <div className="popopo">
+      <button className="button cart" onClick={onCartClick}>
+        <img src={shipCard} alt="card"/>
       </button>
-    )}
-    <button className="button admin" onClick={onAdminClick}>
-      Admin
-    </button>
+
+        <button className="button admin" onClick={onAdminClick}>
+          Admin
+        </button>
+
+        {isLoggedIn ? (
+          <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
+        ) : (
+          <button className="button-login ll" onClick={onLoginClick}>
+            <img src={logousernot} alt = "logo"/>
+            Login
+          </button>
+        )}
+    </div>
   </header>
 );
 
@@ -71,7 +90,7 @@ const ProductCard = () => {
     navigate('/cart');
   };
 
-  useEffect(() => {
+  {/*useEffect(() => {
     // Fetch products logic here
     const token = localStorage.getItem('Bearer');
     fetch('/api/v1/products', {
@@ -95,7 +114,7 @@ const ProductCard = () => {
         setError(error.message);
         navigate('/error', { state: { error: error.message } });
       });
-  }, []);
+  }, []);*/}
   useEffect(() => {
     // Search filter logic
     const filtered = prod.filter(item =>
