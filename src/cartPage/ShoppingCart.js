@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 const ShoppingCart = ({ onClose, cartItems }) => {
 
   const [products, setProducts] = useState([]);
@@ -23,9 +22,7 @@ const ShoppingCart = ({ onClose, cartItems }) => {
 
 
   return (
-    
     <div className="shopping-cart-container">
-      
       <div className="shopping-cart">
         <h2>Shopping Cart</h2>
         <ul>

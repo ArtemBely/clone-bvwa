@@ -50,7 +50,7 @@ const Header = ({
 
 const ProductCard = () => {
   const [showLogin, setShowLogin] = useState(false);
-  //const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -72,10 +72,6 @@ const ProductCard = () => {
   const handleAddToCart = (selectedProduct) => {
     setCartItems([...cartItems, selectedProduct]);
   };
-
-  const handleShowCart = () => {
-    navigate("/ShoppingCart")
-  }
 
   const handleSearch = (searchValue) => {
     setSearchTerm(searchValue);
@@ -116,7 +112,7 @@ const ProductCard = () => {
     <div >
       <Header
         onLoginClick={() => setShowLogin(true)}
-        onCartClick={handleShowCart}
+        onCartClick={() => setShowCart(true)}
         onSearch={handleSearch}
         onAdminClick={handleAdminClick}
         isLoggedIn={isLoggedIn}
