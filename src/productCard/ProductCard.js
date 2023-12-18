@@ -92,6 +92,9 @@ const ProductCard = () => {
     navigate('/cart');
   };
 
+{/* ЕБАШТЕ ТУТ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+
+
   {/*useEffect(() => {
     // Fetch products logic here
     const token = localStorage.getItem('Bearer');
@@ -117,6 +120,8 @@ const ProductCard = () => {
         navigate('/error', { state: { error: error.message } });
       });
   }, []);*/}
+
+
   useEffect(() => {
     // Search filter logic
     const filtered = prod.filter(item =>
@@ -167,16 +172,7 @@ const ProductCard = () => {
         ))}
       </div>
 
-      <div style={{
-        backgroundColor: 'white',
-        height: '100px',
-        width: '100%',
-        position: 'fixed',
-        bottom: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+      <div className="questions" >
         <button className="button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>
           Chat
         </button>

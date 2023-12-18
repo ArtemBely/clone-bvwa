@@ -36,14 +36,111 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 
 
+.questions{
+  background-color: #424242;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
 
-.search {
+.starving-section{
+  justify-content: center;
+  background-color: #424242ad;
+  display: flex;
+  height: 150px;
+  position:relative;
+  width: 100%;
+  margin-top: 30px; 
+}
+
+.questions button{
+  background-color: #c4c4c4;
+  font-size: 15px;
+  border-color: transparent;
+  border-radius: 10px;
+  margin-right: 25px;
+}
+
+.starving-section h1{
+  color: #ffffff;
+  margin-top: 50px;
+} 
+
+.starving-section .search-bar-container input{
+  margin-top: 55px;
+  margin-left: 50px;
+  height: 25px;
+  background-color: #9b0000;
+  color: #ffffff;
+  font-size: large;
+  border-color: transparent;
+}
+
+.header .cart {
+  font-size: 15px;
+  background-color: #ffffffcc;
+  display: flex;
+  align-items: center;
+}
+
+.header .cart img{
+  margin-right: 5px;
+  width: auto;
+  height: 30px;
+}
+
+.popopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .ll{
+  background-color: #cccccc3a;
+}
+
+.popopo button{
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.cart{
+  margin-right: 400px;
+}
+
+.admin{
+  background-color: transparent;
+}
+
+.button-login img{
+  margin-right: 5px;
+  width: auto;
+  height: 45px;
+}
+
+.button-login {
+  
+  font-size: 20px;
+  color: #f0bf11;
+  box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
+
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.start-head {
   margin: 0 1rem;
 }
 
@@ -57,11 +154,6 @@ body {
 
 .cart {
   background-color: #eee;
-}
-
-.login {
-  background-color: #007bff;
-  color: white;
 }
 
 /* Content styles */
@@ -83,11 +175,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   border: 1px solid #ddd;
-  margin: 13% 40%;
-}
-
-.register-window h2{
-  margin-bottom: 20px;
+  margin: 33% 77%;
 }
 
 /* Form input styles */
@@ -194,7 +282,7 @@ body {
   margin-bottom: 1.5rem;
   border: 1px solid #ccc; /* Input border color */
   border-radius: 4px;
-  background-color: #f9f9f9; /* Input background colorddd */
+  background-color: #f9f9f9; /* Input background color */
   color: #333; /* Input text color */
 }
 
@@ -255,13 +343,12 @@ body {
 /* Styles for the logo image */
 .logo {
   position: absolute;
-  top: 1px; /* Adjust the distance from the top */
   left: 300px; /* Adjust the distance from the left */
   transform: translateX(-50%); /* Center the logo horizontally */
 }
 
 .logo img {
-  width: 204px; /* Adjust the width of the image */
+  width: 154px; /* Adjust the width of the image */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -286,11 +373,7 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
-.product-card-clicked {
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  
-  border: 2px solid #007bff; */
-}
+
 .products-list {
   display: flex;
   justify-content: flex-start; /* Aligns children to the start of the container's main axis */
