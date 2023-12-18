@@ -11,6 +11,26 @@ ul {
   padding: 0;
 }
 
+.user-details{
+  background-color: #42424278;
+  width: 300px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 10% 40%;
+}
+
+.user-details p{
+  margin: 10px;
+  font-size: large;
+}
+
+.user-details h3{
+  margin: 10px;
+  font-size: large;
+}
 
 .userEd-Cont{
   background-color: #42424278;
