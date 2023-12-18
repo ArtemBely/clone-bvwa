@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { useNavigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import ShoppingCart from './cartPage/ShoppingCart';
 import LoginPage from './loginPage/LoginPage';
 import RegisterPage from './regPage/RegistrationPage';
@@ -17,11 +18,14 @@ function App() {
 
         <main className="main-content">
           <Routes>
-          <Route path="/" element={<ProductCard />} />
+          <Route path="/" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
-            <Route path="/useredit" element={<UserPage />} />
+            <Route path="/useredit" element={<UserEdit />} />
+            <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/user" element={<UserPage />} />
+            <Route path="/cart" element={<ShoppingCart />} />
             {/* Другие маршруты */}
           </Routes>
         </main>
