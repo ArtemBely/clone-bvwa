@@ -52,7 +52,7 @@ const AdminPage = () => {
               <button onClick={() => handleEditUser(user)} className="edit-user-button">
                 Edit User
               </button>
-              <hr />
+              <hr/>
             </div>
           ))}
         </div>

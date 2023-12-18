@@ -163,17 +163,22 @@ const ProductCard = () => {
         </div>
       </div>
 
-      <div className='products-list'>
+      <div>
+      <div >
         {filteredProd.map((item, index) => (
-          <div key={index}>
+          <div key={index}className='products-list'>
       
             <h3>{item.nazev}</h3>
             <img src={item.image} alt={item.nazev} />
             <p>Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
+            <hr></hr>
           </div>
+          
         ))}
+      </div>
+
       </div>
 
       <div className="questions" >
