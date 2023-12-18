@@ -4,6 +4,7 @@ import fastFoodLogo from '../images/LOGO.png';
 import logousernot from '../images/logo_user_not.png';
 import shipCard from '../images/shopping_cart_icon.png';
 
+
 const Header = ({ 
   onLoginClick, 
   onCartClick, 
@@ -37,9 +38,13 @@ const Header = ({
         </button>
 
         {isLoggedIn ? (
-          <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
+          <button className="button-login" onClick={onUserClick}>
+            <img src={logousernot} alt = "logo"/>
+             {userName}
+          </button>
+          
         ) : (
-          <button className="button-login ll" onClick={onLoginClick}>
+          <button className="button-login " onClick={onLoginClick}>
             <img src={logousernot} alt = "logo"/>
             Login
           </button>
@@ -109,7 +114,7 @@ const ProductCard = () => {
        // Update product objects with image paths
        const updatedData = data.map((item, index) => ({
         ...item,
-        image: `..src/images/image${index + 1}.jpg` // Пример пути к изображению
+        image: `images/image${index + 1}.jpg` // Пример пути к изображению
       }));
       setProd(updatedData);
       setFilteredProd(updatedData); // Initialize filtered products with all products

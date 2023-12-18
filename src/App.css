@@ -11,6 +11,9 @@ ul {
   padding: 0;
 }
 
+
+
+
 .user-details{
   background-color: #42424278;
   width: 300px;
@@ -131,7 +134,7 @@ body {
 
 .questions button{
   background-color: #c4c4c4;
-  font-size: 15px;
+  font-size: 20px;
   border-color: transparent;
   border-radius: 10px;
   margin-right: 25px;
@@ -190,6 +193,16 @@ body {
   background-color: transparent;
 }
 
+.back  {
+ background-color: #7575759d;
+ font-size: 25px;
+  border-color: #f0bf11;
+  border-radius: 2%;
+  margin-left: 100px;
+  color: #a10212;
+  padding: 5px;
+}
+
 .button-login img{
   margin-right: 5px;
   width: auto;
@@ -201,7 +214,7 @@ body {
   font-size: 20px;
   color: #f0bf11;
   box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
-
+  background-color: transparent;
   border-color: transparent;
   display: flex;
   align-items: center;
@@ -442,11 +455,28 @@ body {
 
 
 .products-list {
+  margin-top: 50px;
   display: flex;
   justify-content: flex-start; /* Aligns children to the start of the container's main axis */
   align-items: center;
   gap: 10px;
+  background-color: #42424281;
+  box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
 }
+
+.products-list h3{
+  margin: 25px;
+  font-size: 25px;
+  color: #f0bf11;
+  
+}
+
+.products-list p{
+  margin: 25px;
+  font-size: 25px;
+
+}
+
 li {
   list-style: none;
 }

@@ -82,7 +82,7 @@ const UserPage = () => {
                 <p>Loading user information...</p>
             )}
             {error && <p className="error-message">{error}</p>}
-            <button onClick={handleButtonClick}>Go Back to Products</button>
+            <button className='back' onClick={handleButtonClick}>Go Back to Products</button>
         </div>
     );
 }
