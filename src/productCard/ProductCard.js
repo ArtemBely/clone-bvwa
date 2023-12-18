@@ -80,6 +80,8 @@ const ProductCard = () => {
     setSearchTerm(searchValue);
   };
 
+  
+
   const handleAdminClick = () => {
     navigate('/admin');
   };
@@ -139,6 +141,19 @@ const ProductCard = () => {
         onUserClick={handleUSerClick}
         onCartClick={handleCartClick}
       />
+
+      <div className="starving-section">
+        <h1>Are you starving?</h1>
+        <div className="search-bar-container">
+          <input
+            className="search"
+            type="text"
+            placeholder="Searching"
+            onChange={(e) => handleSearch(e.target.value)}
+          />
+        </div>
+      </div>
+
       <div className='products-list'>
         {filteredProd.map((item, index) => (
           <div key={index}>
