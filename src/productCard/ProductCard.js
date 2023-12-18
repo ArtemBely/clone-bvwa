@@ -95,7 +95,7 @@ const ProductCard = () => {
 {/* ЕБАШТЕ ТУТ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
 
 
-  {/*useEffect(() => {
+  useEffect(() => {
     // Fetch products logic here
     const token = localStorage.getItem('Bearer');
     fetch('/api/v1/products', {
@@ -119,7 +119,7 @@ const ProductCard = () => {
         setError(error.message);
         navigate('/error', { state: { error: error.message } });
       });
-  }, []);*/}
+  }, []);
 
 
   useEffect(() => {

@@ -10,6 +10,7 @@ import AdminPage from './AdminPage/adminPage';
 import ProductCard from './productCard/ProductCard';
 import UserEdit from './userEditPage/UserEdit';
 import UserPage from './userPage/UserPage';
+import ErrorPage from './errorPage/error';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
 
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<RegisterPage />} />
+            <Route path="/" element={<UserEdit />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />

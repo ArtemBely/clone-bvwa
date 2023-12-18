@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 const ErrorPage = () => {
@@ -6,7 +5,13 @@ const ErrorPage = () => {
     const error = location.state?.error || 'Unknown error';
 
     return (
+
+        
         <div className="error-container">
+            <p1>
+                ERROR: 404 !!!!<br/>
+                HE-HE-HE-HE-HE-HE-HE-HE
+            </p1>
             <div className="error-window">
                 <h2>Error Occurred</h2>
                 <p>{error}</p>

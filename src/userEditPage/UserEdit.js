@@ -61,10 +61,10 @@ const UserEdit = () => {
     };
 
     return (
-        <div>
+        <div className='userEd-Cont'>
             <h2>Edit User</h2>
             {error && <p className="error-message">{error}</p>}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='input-user'>
                 <label>
                     Name:
                     <input type="text" name="name" value={user.name} onChange={handleChange} />
