@@ -18,7 +18,7 @@ function App() {
 
         <main className="main-content">
           <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<UserPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
