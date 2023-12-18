@@ -5,6 +5,13 @@ import logousernot from '../images/logo_user_not.png';
 import shipCard from '../images/shopping_cart_icon.png';
 import im1 from '../images/image1.jpg';
 
+import image1 from '../images/image1.jpg';
+import image2 from '../images/image2.jpg';
+import image3 from '../images/image3.jpg';
+import image4 from '../images/image4.jpg';
+import image5 from '../images/image5.jpg';
+import image6 from '../images/image6.jpg';
+
 const Header = ({ 
   onLoginClick, 
   onCartClick, 
@@ -64,6 +71,8 @@ const ProductCard = () => {
   const [error, setError] = useState('');
   const [filteredProd, setFilteredProd] = useState([]);
 
+  const[imageDef, setImageDef]=useState([]);
+
   const navigate = useNavigate();
 
 
@@ -75,6 +84,8 @@ const ProductCard = () => {
       // Замените это на получение имени пользователя из вашего источника данных
       setUserName('Profile');
     }
+    
+setImageDef([image1, image2, image3, image4, image5, image6]);
   }, []);
 
   const handleAddToCart = (selectedProduct) => {
@@ -114,7 +125,7 @@ const ProductCard = () => {
        // Update product objects with image paths
        const updatedData = data.map((item, index) => ({
         ...item,
-        image: im1
+        image: '../images/image${index + 1}.jpg'
       }));
       setProd(updatedData);
       setFilteredProd(updatedData); // Initialize filtered products with all products
@@ -169,7 +180,8 @@ const ProductCard = () => {
           <div key={index}className='products-list'>
       
             <h3>{item.nazev}</h3>
-            <img src={item.image} alt={item.nazev} />
+
+            <img src={imageDef[index]} alt={item.nazev} />
             <p>Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
