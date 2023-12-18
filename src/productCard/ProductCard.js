@@ -111,12 +111,9 @@ const ProductCard = () => {
     <div className={'product-card-clicked'}>
       <Header
         onLoginClick={() => setShowLogin(true)}
-<<<<<<< HEAD
+
         onSearch={setSearchTerm}
-=======
-        //onCartClick={handleShowCart}
-        onSearch={handleSearch}
->>>>>>> dc3d7bb55a99a601126015ba2dc1ca9da17d2c73
+
         onAdminClick={handleAdminClick}
         isLoggedIn={isLoggedIn}
         userName={userName}
