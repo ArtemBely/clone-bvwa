@@ -112,7 +112,7 @@ const ProductCard = () => {
     <div >
       <Header
         onLoginClick={() => setShowLogin(true)}
-        onCartClick={() => setShowCart(true)}
+        onCartClick={handleShowCart}
         onSearch={handleSearch}
         onAdminClick={handleAdminClick}
         isLoggedIn={isLoggedIn}
