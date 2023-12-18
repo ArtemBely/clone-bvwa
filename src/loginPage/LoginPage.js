@@ -19,6 +19,7 @@ const LoginPage = ({ onBack, onRegister }) => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('Bearer', data.token);
+        localStorage.setItem('UserEmail', data.email);
         window.location.href = '/products';
 
       } else {

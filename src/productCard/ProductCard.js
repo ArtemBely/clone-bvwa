@@ -39,7 +39,7 @@ const Header = ({
         {isLoggedIn ? (
           <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
         ) : (
-          <button className="button-login ll" onClick={onLoginClick}>
+          <button className="button-login" onClick={onLoginClick}>
             <img src={logousernot} alt = "logo"/>
             Login
           </button>
@@ -56,8 +56,11 @@ const ProductCard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
   const [prod, setProd] = useState([]);
+  const [error, setError] = useState('');
+  const [filteredProd, setFilteredProd] = useState([]);
 
   const navigate = useNavigate();
+
 
   useEffect(() => {
     // Здесь должна быть логика для проверки, вошел ли пользователь
@@ -65,7 +68,7 @@ const ProductCard = () => {
     if (userToken) {
       setIsLoggedIn(true);
       // Замените это на получение имени пользователя из вашего источника данных
-      setUserName('John Doe');
+      setUserName('Profile');
     }
   }, []);
 
@@ -87,41 +90,57 @@ const ProductCard = () => {
   const handleUSerClick = () => {
     navigate('/user');
   };
+  const handleCartClick = () => {
+    navigate('/cart');
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem('Bearer'); // Определяем token здесь
-
-    try {
-      fetch('/api/v1/products', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+    // Fetch products logic here
+    const token = localStorage.getItem('Bearer');
+    fetch('/api/v1/products', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+       // Update product objects with image paths
+       const updatedData = data.map((item, index) => ({
+        ...item,
+        image: `..src/images/image${index + 1}.jpg` // Пример пути к изображению
+      }));
+      setProd(updatedData);
+      setFilteredProd(updatedData); // Initialize filtered products with all products
       })
-        .then(response => response.json())
-        .then(data => {
-          setProd(data);
-        })
-        .catch(error => {
-          console.error('Ошибка аутентификации:', error);
-        });
-    } catch (error) {
-      console.error('Ошибка запроса:', error);
-    }
+      .catch(error => {
+        setError(error.message);
+        navigate('/error', { state: { error: error.message } });
+      });
   }, []);
+  useEffect(() => {
+    // Search filter logic
+    const filtered = prod.filter(item =>
+      item.nazev.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.popis.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProd(filtered);
+  }, [searchTerm, prod]);
+
 
 
   return (
     <div >
       <Header
         onLoginClick={() => setShowLogin(true)}
-        onCartClick={handleShowCart}
+        //onCartClick={handleShowCart}
         onSearch={handleSearch}
         onAdminClick={handleAdminClick}
         isLoggedIn={isLoggedIn}
         userName={userName}
         onUserClick={handleUSerClick}
+        onCartClick={handleCartClick}
       />
     
     {/*down search*/}
