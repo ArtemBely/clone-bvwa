@@ -4,6 +4,7 @@ import fastFoodLogo from '../images/LOGO.png';
 import logousernot from '../images/logo_user_not.png';
 import shipCard from '../images/shopping_cart_icon.png';
 import im1 from '../images/image1.jpg';
+import ShoppingCart from '../cartPage/ShoppingCart';
 
 import image1 from '../images/image1.jpg';
 import image2 from '../images/image2.jpg';
@@ -36,9 +37,9 @@ const Header = ({
     </div>
     
     <div className="popopo">
-      <button className="button cart" onClick={onCartClick}>
+      {/* <button className="button cart" onClick={onCartClick}>
         <img src={shipCard} alt="card"/>
-      </button>
+      </button> */}
 
         <button className="button admin" onClick={onAdminClick}>
           Admin
@@ -70,6 +71,7 @@ const ProductCard = () => {
   const [prod, setProd] = useState([]);
   const [error, setError] = useState('');
   const [filteredProd, setFilteredProd] = useState([]);
+  const [cartItemsActive, setCartItensActive] = useState([]);
 
   const[imageDef, setImageDef]=useState([]);
 
@@ -97,6 +99,10 @@ setImageDef([image1, image2, image3, image4, image5, image6]);
   };
 
   
+const addToCard = (item) => {
+    console.log(item.nazev);
+    setCartItensActive([...cartItemsActive, item]);
+  }
 
   const handleAdminClick = () => {
     navigate('/admin');
@@ -125,7 +131,7 @@ setImageDef([image1, image2, image3, image4, image5, image6]);
        // Update product objects with image paths
        const updatedData = data.map((item, index) => ({
         ...item,
-        image: '../images/image${index + 1}.jpg'
+        image: `../images/image${index + 1}.jpg`
       }));
       setProd(updatedData);
       setFilteredProd(updatedData); // Initialize filtered products with all products
@@ -173,24 +179,27 @@ setImageDef([image1, image2, image3, image4, image5, image6]);
           />
         </div>
       </div>
+      
 
-      <div>
+
       <div >
         {filteredProd.map((item, index) => (
           <div key={index}className='products-list'>
-      
-            <h3>{item.nazev}</h3>
 
+            <h3>{item.nazev}</h3>
             <img src={imageDef[index]} alt={item.nazev} />
             <p>Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
-            <hr></hr>
+            <button onClick={() => addToCard(item)}>Add to cart</button>
           </div>
-          
         ))}
       </div>
 
+      <div className='caaaaard'>
+        {cartItemsActive && cartItemsActive.length > 0 && (
+          <ShoppingCart cartItems={cartItemsActive} />
+        )}
       </div>
 
       <div className="questions" >

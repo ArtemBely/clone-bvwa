@@ -11,7 +11,29 @@ ul {
   padding: 0;
 }
 
+.shopping-cart {
+  background-color: #42a0568a;
+}
 
+.shopping-cart button{
+  margin: 10px;
+}
+
+.shopping-cart-summary{
+  margin: 10px;
+  color: wheat;
+}
+
+.card2 p{
+  color: white;
+  margin: 10px;
+}
+
+
+.caaaaard{
+  background-color: transparent;
+  margin-top: 40px;
+}
 
 
 .user-details{
@@ -472,6 +494,8 @@ body {
 }
 
 .products-list {
+  margin-left: 100px;
+  margin-right: 100px;
   margin-top: 50px;
   display: flex;
   justify-content: flex-start; /* Aligns children to the start of the container's main axis */
@@ -495,7 +519,15 @@ body {
 .products-list p{
   margin: 25px;
   font-size: 25px;
+  color: white;
+}
 
+.products-list button{
+  margin: 25px;
+  font-size: 25px;
+  background-color: #8c8b8b;
+  color: white;
+  background-color: #218838;
 }
 
 li {
