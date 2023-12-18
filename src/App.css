@@ -39,9 +39,54 @@ body {
   background-color: transparent;
 }
 
+
+.questions{
+  background-color: #424242;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.starving-section{
+  justify-content: center;
+  background-color: #424242ad;
+  display: flex;
+  height: 150px;
+  position:relative;
+  width: 100%;
+  margin-top: 30px; 
+}
+
+.questions button{
+  background-color: #c4c4c4;
+  font-size: 15px;
+  border-color: transparent;
+  border-radius: 10px;
+  margin-right: 25px;
+}
+
+.starving-section h1{
+  color: #ffffff;
+  margin-top: 50px;
+} 
+
+.starving-section .search-bar-container input{
+  margin-top: 55px;
+  margin-left: 50px;
+  height: 25px;
+  background-color: #9b0000;
+  color: #ffffff;
+  font-size: large;
+  border-color: transparent;
+}
+
 .header .cart {
   font-size: 15px;
-
   background-color: #ffffffcc;
   display: flex;
   align-items: center;
@@ -95,7 +140,7 @@ body {
   align-items: center;
 }
 
-.search {
+.start-head {
   margin: 0 1rem;
 }
 
@@ -328,11 +373,7 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
-.product-card-clicked {
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  
-  border: 2px solid #007bff; */
-}
+
 .products-list {
   display: flex;
   justify-content: flex-start; /* Aligns children to the start of the container's main axis */

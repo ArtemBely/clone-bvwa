@@ -4,38 +4,46 @@ import fastFoodLogo from '../images/LOGO.png';
 import logousernot from '../images/logo_user_not.png';
 import shipCard from '../images/shopping_cart_icon.png';
 
-const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick, isLoggedIn, userName, onUserClick }) => (
+const Header = ({ 
+  onLoginClick, 
+  onCartClick, 
+  onSearch, 
+  onAdminClick, 
+  isLoggedIn, 
+  userName, 
+  onUserClick 
+}) => (
   <header className="header">
-    
-    <input
+    <div className="start-head">
+
+    </div>
+    {/*<input
       className="search"
       type="text"
       placeholder="Searching"
-      onChange={(e) => onSearch(e.target.value)}
-    />
+      //onChange={(e) => onSearch(e.target.value)}
+/>*/}
     <div className="logo">
       <img src={fastFoodLogo} alt="Fast Food Logo" />
     </div>
     
-    
     <div className="popopo">
-    <button className="button cart" onClick={onCartClick}>
-      <img src={shipCard} alt="card"/>
-      
-    </button>
-
-      <button className="button admin" onClick={onAdminClick}>
-        Admin
+      <button className="button cart" onClick={onCartClick}>
+        <img src={shipCard} alt="card"/>
       </button>
 
-      {isLoggedIn ? (
-        <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
-      ) : (
-        <button className="button-login ll" onClick={onLoginClick}>
-          <img src={logousernot} alt = "logo"/>
-          Login
+        <button className="button admin" onClick={onAdminClick}>
+          Admin
         </button>
-      )}
+
+        {isLoggedIn ? (
+          <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
+        ) : (
+          <button className="button-login ll" onClick={onLoginClick}>
+            <img src={logousernot} alt = "logo"/>
+            Login
+          </button>
+        )}
     </div>
   </header>
 );
@@ -101,7 +109,7 @@ const ProductCard = () => {
 
 
   return (
-    <div className={'product-card-clicked'}>
+    <div >
       <Header
         onLoginClick={() => setShowLogin(true)}
         onCartClick={() => setShowCart(true)}
@@ -111,6 +119,21 @@ const ProductCard = () => {
         userName={userName}
         onUserClick={handleUSerClick}
       />
+    
+    {/*down search*/}
+    
+      <div className="starving-section">
+        <h1>Are you starving?</h1>
+        <div className="search-bar-container">
+          <input
+            className="search"
+            type="text"
+            placeholder="Searching"
+            onChange={(e) => handleSearch(e.target.value)}
+          />
+        </div>
+      </div>
+
       {prod.map((item, index) => (
         <div className='products-list'>
           <li key={index} >
@@ -122,16 +145,9 @@ const ProductCard = () => {
           </li>
         </div>
       ))}
-      <div style={{
-        backgroundColor: 'white',
-        height: '100px',
-        width: '100%',
-        position: 'fixed',
-        bottom: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+
+
+      <div className="questions" >
         <button className="button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>
           Chat
         </button>
