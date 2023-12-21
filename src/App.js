@@ -6,11 +6,11 @@ import ShoppingCart from './cartPage/ShoppingCart';
 import LoginPage from './loginPage/LoginPage';
 import RegisterPage from './regPage/RegistrationPage';
 import ProductList from './productCard/ProductCard';
-import fastFoodLogo from './images/fastfoodlogo.jpg';
 import AdminPage from './AdminPage/adminPage';
 import ProductCard from './productCard/ProductCard';
 import UserEdit from './userEditPage/UserEdit';
 import UserPage from './userPage/UserPage';
+import ErrorPage from './errorPage/error';
 
 function App() {
   return (
@@ -23,7 +23,11 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/products" element={<ProductCard />} />
-            <Route path="/useredit" element={<UserPage />} />
+            <Route path="/useredit" element={<UserEdit />} />
+            <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/user" element={<UserPage />} />
+            <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/error" element={<ErrorPage />} />
             {/* Другие маршруты */}
           </Routes>
         </main>

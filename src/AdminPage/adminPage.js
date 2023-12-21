@@ -1,87 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AdminPage = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [foundUser, setFoundUser] = useState(null);
+  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const userToken = localStorage.getItem('Bearer');
+  const [error, setError] = useState('');
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await fetch(`/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          // Добавьте необходимые заголовки, например, для авторизации
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+  useEffect(() => {
+    const token = localStorage.getItem('Bearer');
+    fetch('api/v1/users/', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token} `
       }
-
-      const userData = await response.json();
-      setFoundUser(userData);
-      console.log('Found user:', userData);
-    } catch (error) {
-      console.error('Error searching for user:', error);
-    }
-  };
-
-  const handleEditUser = () => {
-    navigate('/useredit', { state: { user: foundUser } }); // Перенаправление на страницу редактирования пользователя
+    })
+      .then(response => response.json())
+      .then(data => {
+        setUsers(data);
+      })
+      .catch(error => {
+        setError(error.message);
+        navigate('/error', { state: { error: error.message } });
+      });
+  }, []);
+  const handleEditUser = (user) => {
+    navigate('/useredit', { state: { user } }); // Redirect to the user edit page
   };
 
   const handleClose = () => {
-    navigate('/products'); // Перенаправление на страницу продуктов
+    navigate('/products'); // Redirect to the products page
   };
 
   return (
     <div className="admin-container">
       <div className="admin-window">
         <h2>Admin Page</h2>
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Surname"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button type="submit" className="search-button">Search</button>
-          <button onClick={handleClose} className="close-button">Close</button>
-        </form>
+        <button onClick={handleClose} className="close-button">Close</button>
+        <div className="users-list">
+          {users.map((user, index) => (
+            <div key={index} className="user-details">
+              <h3>User Details:</h3>
+              <p>Name: {user.name}</p>
+              <p>Surname: {user.surname}</p>
+              <p>Email: {user.email}</p>
+              <p>Phone: {user.phone}</p>
+              <p>Date of birth:{user.dateofbirth}</p>
 
-        {foundUser && (
-          <div className="user-details">
-            <h3>User Details:</h3>
-            <p>Name: {foundUser.name}</p>
-            <p>Surname: {foundUser.surname}</p>
-            <p>Email: {foundUser.email}</p>
-            <button onClick={handleEditUser} className="edit-user-button">
-              Edit User
-            </button>
-          </div>
-        )}
+              {/* Include other fields as necessary */}
+              <button onClick={() => handleEditUser(user)} className="edit-user-button">
+                Edit User
+              </button>
+              <hr />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div style={{
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         height: '100px',
         width: '100%',
         position: 'fixed',

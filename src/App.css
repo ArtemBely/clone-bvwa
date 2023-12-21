@@ -11,6 +11,57 @@ ul {
   padding: 0;
 }
 
+
+.userEd-Cont{
+  background-color: #42424278;
+  width: 300px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 10% 35%;
+}
+
+.input-user label{
+    color: #000;
+    font-size: large;
+}
+
+.userEd-Cont h2{
+  margin-bottom: 20px;
+}
+
+.input-user button{
+  margin-top: 20px;
+  border-color: transparent;
+  height: 35px;
+  font-size: 20px;
+}
+
+.input-user input{
+  margin-left: 22%;
+  margin-top: 5px;
+  display: flex;
+}
+
+.error-container{
+  background-color: #9b00004a;
+  width: 100%;
+  height: 200px;
+}
+
+.error-container p1{
+  font-size: 30px;
+  color:#7e000d;
+
+}
+
+
+a{
+  text-decoration: none;
+}
+
 body {
   font-family: Arial, sans-serif;
 }
@@ -32,16 +83,111 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 
-.logo {
-  font-weight: bold;
+
+.questions{
+  background-color: #424242;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
 
-.search {
+.starving-section{
+  justify-content: center;
+  background-color: #424242ad;
+  display: flex;
+  height: 150px;
+  position:relative;
+  width: 100%;
+  margin-top: 30px; 
+}
+
+.questions button{
+  background-color: #c4c4c4;
+  font-size: 15px;
+  border-color: transparent;
+  border-radius: 10px;
+  margin-right: 25px;
+}
+
+.starving-section h1{
+  color: #ffffff;
+  margin-top: 50px;
+} 
+
+.starving-section .search-bar-container input{
+  margin-top: 55px;
+  margin-left: 50px;
+  height: 25px;
+  background-color: #9b0000;
+  color: #ffffff;
+  font-size: large;
+  border-color: transparent;
+}
+
+.header .cart {
+  font-size: 15px;
+  background-color: #ffffffcc;
+  display: flex;
+  align-items: center;
+}
+
+.header .cart img{
+  margin-right: 5px;
+  width: auto;
+  height: 30px;
+}
+
+.popopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .ll{
+  background-color: #cccccc3a;
+}
+
+.popopo button{
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.cart{
+  margin-right: 400px;
+}
+
+.admin{
+  background-color: transparent;
+}
+
+.button-login img{
+  margin-right: 5px;
+  width: auto;
+  height: 45px;
+}
+
+.button-login {
+  
+  font-size: 20px;
+  color: #f0bf11;
+  box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
+
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.start-head {
   margin: 0 1rem;
 }
 
@@ -55,11 +201,6 @@ body {
 
 .cart {
   background-color: #eee;
-}
-
-.login {
-  background-color: #007bff;
-  color: white;
 }
 
 /* Content styles */
@@ -81,14 +222,14 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   border: 1px solid #ddd;
-  margin: 33% 77%;
+  margin: 10% 35%;
 }
 
 /* Form input styles */
 .product-card input[type="text"],
 .product-card input[type="password"],
 .register-window input {
-  width: 100%;
+  width: 80%;
   padding: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
@@ -109,7 +250,7 @@ body {
 
 .product-card .submit-button {
   background-color: #424242;
-  color: black;
+  color: white;
 }
 
 .register-window .register-button {
@@ -184,7 +325,7 @@ body {
 
 .login-window input[type="text"],
 .login-window input[type="password"] {
-  width: 100%;
+  width: 80%;
   padding: 0.8rem;
   margin-bottom: 1.5rem;
   border: 1px solid #ccc; /* Input border color */
@@ -193,11 +334,15 @@ body {
   color: #333; /* Input text color */
 }
 
+.login-window .register-button a{
+  color: #333;
+}
+
 .submit-button {
   padding: 0.8rem 1rem;
   border: none;
   border-radius: 4px;
-  background-color: #4285f4; /* Google Blue */
+  background-color: #424242; /* Google Blue */
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth transition */
@@ -209,7 +354,7 @@ body {
 
 .back-button {
   background-color: transparent;
-  color: #4285f4; /* Google Blue */
+  color: #424242; /* Google Blue */
   border: 1px solid #4285f4; /* Border matching button color */
   padding: 0.8rem 1rem;
   border-radius: 4px;
@@ -246,13 +391,12 @@ body {
 /* Styles for the logo image */
 .logo {
   position: absolute;
-  top: 1px; /* Adjust the distance from the top */
   left: 300px; /* Adjust the distance from the left */
   transform: translateX(-50%); /* Center the logo horizontally */
 }
 
 .logo img {
-  width: 64px; /* Adjust the width of the image */
+  width: 154px; /* Adjust the width of the image */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -277,11 +421,7 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
-.product-card-clicked {
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  
-  border: 2px solid #007bff; */
-}
+
 .products-list {
   display: flex;
   justify-content: flex-start; /* Aligns children to the start of the container's main axis */
@@ -291,7 +431,10 @@ body {
 li {
   list-style: none;
 }
-
+.profilePhoto {
+  width: 100px;
+  height: 100px;
+}
 
 /* Adaptive for the shit*/
 
@@ -346,5 +489,3 @@ img {
   grid-column: span 2; /* Item spans two columns */
   grid-row: 1; /* Item is placed in the first row */
 }
-
-
