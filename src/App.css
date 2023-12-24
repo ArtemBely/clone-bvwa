@@ -436,6 +436,8 @@ li {
   height: 100px;
 }
 
+
+
 /* Adaptive for the shit*/
 
 
@@ -489,3 +491,132 @@ img {
   grid-column: span 2; /* Item spans two columns */
   grid-row: 1; /* Item is placed in the first row */
 }
+
+/* For mobile devices with max-width 600px */
+@media only screen and (max-width: 600px) {
+  .product-card {
+    width: 100%; /* Full width on small screens */
+    padding: 1rem;
+  }
+}
+
+/* For tablets with min-width 768px */
+@media only screen and (min-width: 768px) {
+  .product-card {
+    width: 50%; /* Half width on medium screens */
+    padding: 1rem;
+  }
+}
+
+/* For desktops with min-width 992px */
+@media only screen and (min-width: 992px) {
+  .product-card {
+    width: 33.33%; /* One third width on large screens */
+    padding: 1rem;
+  }
+}
+
+/* For large desktops with min-width 1200px */
+@media only screen and (min-width: 1200px) {
+  .product-card {
+    width: 25%; /* One fourth width on extra large screens */
+    padding: 1rem;
+  }
+}
+/* For mobile devices */
+@media only screen and (max-width: 600px) {
+  .login-window {
+    width: 80%;
+    padding: 1rem;
+  }
+}
+
+/* For tablets */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .login-window {
+    width: 60%;
+    padding: 1.5rem;
+  }
+}
+
+/* For desktops */
+@media only screen and (min-width: 900px) {
+  .login-window {
+    width: 40%;
+    padding: 2rem;
+  }
+}
+
+
+
+.shopping-cart {
+  /* Default styles for large screens */
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+/* For tablets */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .shopping-cart {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 600px) {
+  .shopping-cart {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+.admin {
+  /* Default styles for large screens */
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+/* For tablets */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .admin {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 600px) {
+  .admin {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+.userEd-Cont{
+  /* Default styles for large screens */
+  width: 300px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 10% 35%;
+}
+
+/* For tablets */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .userEd-Cont{
+    width: 80%;
+    padding: 1.5rem;
+  }
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 600px) {
+  .userEd-Cont{
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
