@@ -3,6 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import fastFoodLogo from '../images/LOGO.png';
 import logousernot from '../images/logo_user_not.png';
 import shipCard from '../images/shopping_cart_icon.png';
+import im1 from '../images/image1.jpg';
+import ShoppingCart from '../cartPage/ShoppingCart';
+
+import image1 from '../images/image1.jpg';
+import image2 from '../images/image2.jpg';
+import image3 from '../images/image3.jpg';
+import image4 from '../images/image4.jpg';
+import image5 from '../images/image5.jpg';
+import image6 from '../images/image6.jpg';
 
 import image1 from '../images/image1.jpg';
 import image2 from '../images/image2.jpg';
@@ -37,18 +46,22 @@ const Header = ({
     </div>
     
     <div className="popopo">
-      <button className="button cart" onClick={onCartClick}>
+      {/* <button className="button cart" onClick={onCartClick}>
         <img src={shipCard} alt="card"/>
-      </button>
+      </button> */}
 
         <button className="button admin" onClick={onAdminClick}>
           Admin
         </button>
 
         {isLoggedIn ? (
-          <button className="user-name" onClick={onUserClick}>Hello, {userName}</button>
+          <button className="button-login" onClick={onUserClick}>
+            <img src={logousernot} alt = "logo"/>
+             {userName}
+          </button>
+          
         ) : (
-          <button className="button-login ll" onClick={onLoginClick}>
+          <button className="button-login " onClick={onLoginClick}>
             <img src={logousernot} alt = "logo"/>
             Login
           </button>
@@ -67,6 +80,9 @@ const ProductCard = () => {
   const [prod, setProd] = useState([]);
   const [error, setError] = useState('');
   const [filteredProd, setFilteredProd] = useState([]);
+  const [cartItemsActive, setCartItensActive] = useState([]);
+
+  const[imageDef, setImageDef]=useState([]);
 
   const navigate = useNavigate();
 
@@ -80,7 +96,8 @@ const ProductCard = () => {
       // Замените это на получение имени пользователя из вашего источника данных
       setUserName('Profile');
     }
-    setImageDef([image1, image2, image3, image4, image5, image6]);
+    
+setImageDef([image1, image2, image3, image4, image5, image6]);
   }, []);
 
   const handleAddToCart = (selectedProduct) => {
@@ -92,6 +109,10 @@ const ProductCard = () => {
   };
 
   
+const addToCard = (item) => {
+    console.log(item.nazev);
+    setCartItensActive([...cartItemsActive, item]);
+  }
 
   const handleAdminClick = () => {
     navigate('/admin');
@@ -103,7 +124,6 @@ const ProductCard = () => {
     navigate('/cart');
   };
 
-{/* ЕБАШТЕ ТУТ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
 
 
   useEffect(() => {
@@ -121,7 +141,11 @@ const ProductCard = () => {
        // Update product objects with image paths
        const updatedData = data.map((item, index) => ({
         ...item,
+<<<<<<< HEAD
         image: `../images/image${index + 1}.jpg` // Исправленный путь к изображению
+=======
+        image: `../images/image${index + 1}.jpg`
+>>>>>>> 414d2feed3aa33934ecd1df313827e686b5b08a0
       }));
       setProd(updatedData);
       setFilteredProd(updatedData); // Initialize filtered products with all products
@@ -169,19 +193,31 @@ const ProductCard = () => {
           />
         </div>
       </div>
-
-      <div className='products-list'>
-        {filteredProd.map((item, index) => (
-          <div key={index}>
       
+
+
+      <div >
+        {filteredProd.map((item, index) => (
+          <div key={index}className='products-list'>
+
             <h3>{item.nazev}</h3>
+<<<<<<< HEAD
             {/* <img src={item.image} alt={item.nazev} /> */}
+=======
+>>>>>>> 414d2feed3aa33934ecd1df313827e686b5b08a0
             <img src={imageDef[index]} alt={item.nazev} />
             <p>Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
+            <button onClick={() => addToCard(item)}>Add to cart</button>
           </div>
         ))}
+      </div>
+
+      <div className='caaaaard'>
+        {cartItemsActive && cartItemsActive.length > 0 && (
+          <ShoppingCart cartItems={cartItemsActive} />
+        )}
       </div>
 
       <div className="questions" >
