@@ -533,10 +533,7 @@ li {
 /* Adaptive for the shit*/
 
 /* Example of media query for mobile devices */
-@media only screen and (max-width: 600px) {
-  /* CSS styles specific for mobile devices */
-  /* ... */
-}
+
 
 img {
   max-width: 100%;
@@ -587,7 +584,7 @@ img {
 /* For mobile devices with max-width 600px */
 @media only screen and (max-width: 600px) {
   .product-card {
-    width: 100%; /* Full width on small screens */
+    width: 30; /* Full width on small screens */
     padding: 1rem;
   }
 }
@@ -728,4 +725,35 @@ img {
   border-radius: 5px;
   position: relative;
   z-index: 1001; /* Еще выше, чем overlay */
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .products-list {
+    padding: 20px 450px;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start; /* Aligns children to the start of the container's main axis */
+    align-items: center;
+  }
+  .popopo {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  .starving-section {
+    padding: 30px 500px;
+    font-size: 9px;
+    justify-content: center;
+
+  }
+  .popopo button {
+padding: 5px 40px;
+  }
+  .questions {
+    padding: 30px 500px;
+    font-size: 9px;
+    justify-content: center;
+  }
+  
 }
