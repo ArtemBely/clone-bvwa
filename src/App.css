@@ -15,28 +15,26 @@ ul {
   background-color: #42a0568a;
 }
 
-.shopping-cart button{
+.shopping-cart button {
   margin: 10px;
 }
 
-.shopping-cart-summary{
+.shopping-cart-summary {
   margin: 10px;
   color: wheat;
 }
 
-.card2 p{
+.card2 p {
   color: white;
   margin: 10px;
 }
 
-
-.caaaaard{
+.caaaaard {
   background-color: transparent;
   margin-top: 40px;
 }
 
-
-.user-details{
+.user-details {
   background-color: #42424278;
   width: 300px;
   padding: 2rem;
@@ -47,17 +45,17 @@ ul {
   margin: 10% 40%;
 }
 
-.user-details p{
+.user-details p {
   margin: 10px;
   font-size: large;
 }
 
-.user-details h3{
+.user-details h3 {
   margin: 10px;
   font-size: large;
 }
 
-.userEd-Cont{
+.userEd-Cont {
   background-color: #42424278;
   width: 300px;
   padding: 2rem;
@@ -68,42 +66,40 @@ ul {
   margin: 10% 35%;
 }
 
-.input-user label{
-    color: #000;
-    font-size: large;
+.input-user label {
+  color: #000;
+  font-size: large;
 }
 
-.userEd-Cont h2{
+.userEd-Cont h2 {
   margin-bottom: 20px;
 }
 
-.input-user button{
+.input-user button {
   margin-top: 20px;
   border-color: transparent;
   height: 35px;
   font-size: 20px;
 }
 
-.input-user input{
+.input-user input {
   margin-left: 22%;
   margin-top: 5px;
   display: flex;
 }
 
-.error-container{
+.error-container {
   background-color: #9b00004a;
   width: 100%;
   height: 200px;
 }
 
-.error-container p1{
+.error-container p1 {
   font-size: 30px;
-  color:#7e000d;
-
+  color: #7e000d;
 }
 
-
-a{
+a {
   text-decoration: none;
 }
 
@@ -131,15 +127,12 @@ body {
   background-color: transparent;
 }
 
-
-
-
-.questions{
+.questions {
   margin-top: 200px;
   background-color: #424242;
   height: 100px;
   width: 100%;
-  position:sticky;
+  position: sticky;
   bottom: 0;
   left: 0;
   display: flex;
@@ -147,17 +140,17 @@ body {
   align-items: center;
 }
 
-.starving-section{
+.starving-section {
   justify-content: center;
   background-color: #424242ad;
   display: flex;
   height: 150px;
-  position:relative;
+  position: relative;
   width: 100%;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
-.questions button{
+.questions button {
   background-color: #c4c4c4;
   font-size: 20px;
   border-color: transparent;
@@ -165,12 +158,12 @@ body {
   margin-right: 25px;
 }
 
-.starving-section h1{
+.starving-section h1 {
   color: #ffffff;
   margin-top: 50px;
-} 
+}
 
-.starving-section .search-bar-container input{
+.starving-section .search-bar-container input {
   margin-top: 55px;
   margin-left: 50px;
   height: 25px;
@@ -187,7 +180,7 @@ body {
   align-items: center;
 }
 
-.header .cart img{
+.header .cart img {
   margin-right: 5px;
   width: auto;
   height: 30px;
@@ -199,28 +192,28 @@ body {
   justify-content: space-between;
 }
 
-.header .ll{
+.header .ll {
   background-color: #cccccc3a;
 }
 
-.popopo button{
+.popopo button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin-left: 10px;
 }
 
-.cart{
+.cart {
   margin-right: 400px;
 }
 
-.admin{
+.admin {
   background-color: transparent;
 }
 
-.back  {
- background-color: #7575759d;
- font-size: 25px;
+.back {
+  background-color: #7575759d;
+  font-size: 25px;
   border-color: #f0bf11;
   border-radius: 2%;
   margin-left: 100px;
@@ -228,14 +221,13 @@ body {
   padding: 5px;
 }
 
-.button-login img{
+.button-login img {
   margin-right: 5px;
   width: auto;
   height: 45px;
 }
 
 .button-login {
-  
   font-size: 20px;
   color: #f0bf11;
   box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
@@ -355,7 +347,6 @@ body {
   background-color: #c82333;
 }
 
-
 /* Styles for the LoginPage component */
 .login-container {
   height: 100vh;
@@ -392,7 +383,7 @@ body {
   color: #333; /* Input text color */
 }
 
-.login-window .register-button a{
+.login-window .register-button a {
   color: #333;
 }
 
@@ -479,17 +470,17 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
-.admin-window h2{
-    margin-left: 100px;
+.admin-window h2 {
+  margin-left: 100px;
 }
 
-.close-button{
+.close-button {
   margin-top: 20px;
   margin-left: 100px;
   font-size: 25px;
 }
 
-.edit-user-button{
+.edit-user-button {
   background-color: #9b0000;
   font-size: large;
 }
@@ -506,24 +497,24 @@ body {
   box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
 }
 
-.products-list h3{
+.products-list h3 {
   margin: 25px;
   font-size: 25px;
   color: #f0bf11;
 }
 
-.products-list img{
+.products-list img {
   height: 150px;
   width: auto;
 }
 
-.products-list p{
+.products-list p {
   margin: 25px;
   font-size: 25px;
   color: white;
 }
 
-.products-list button{
+.products-list button {
   margin: 25px;
   font-size: 25px;
   background-color: #8c8b8b;
@@ -539,11 +530,7 @@ li {
   height: 100px;
 }
 
-
-
 /* Adaptive for the shit*/
-
-
 
 /* Example of media query for mobile devices */
 @media only screen and (max-width: 600px) {
@@ -557,21 +544,23 @@ img {
 }
 
 /* For Apple iPhone devices */
-@media only screen 
-  and (min-device-width: 375px) /* iPhone 6, 6S, 7, 8, X, XS, 11 Pro */
-  and (max-device-width: 812px)
-  and (-webkit-device-pixel-ratio: 2)
-  and (orientation: portrait) {
+@media only screen and (min-device-width: 375px) /* iPhone 6,
+  6s,
+  7,
+  8,
+  X,
+  XS,
+  11 Pro */ and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
   /* CSS styles specific to iPhone devices */
   /* Add your styles here */
 }
 
 /* For new Samsung Galaxy devices */
-@media only screen 
-  and (min-device-width: 360px) /* Galaxy S6, S7, S8, S9, S10 */
-  and (max-device-width: 740px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
+@media only screen and (min-device-width: 360px) /* Galaxy S6,
+  S7,
+  S8,
+  S9,
+  S10 */ and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   /* CSS styles specific to Samsung Galaxy devices */
   /* Add your styles here */
 }
@@ -650,8 +639,6 @@ img {
   }
 }
 
-
-
 .shopping-cart {
   /* Default styles for large screens */
   padding: 10px 20px;
@@ -696,7 +683,7 @@ img {
   }
 }
 
-.userEd-Cont{
+.userEd-Cont {
   /* Default styles for large screens */
   width: 300px;
   padding: 2rem;
@@ -709,7 +696,7 @@ img {
 
 /* For tablets */
 @media only screen and (min-width: 600px) and (max-width: 900px) {
-  .userEd-Cont{
+  .userEd-Cont {
     width: 80%;
     padding: 1.5rem;
   }
@@ -717,9 +704,28 @@ img {
 
 /* For mobile devices */
 @media only screen and (max-width: 600px) {
-  .userEd-Cont{
+  .userEd-Cont {
     width: 100%;
     padding: 1rem;
   }
 }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Убедитесь, что это значение выше, чем у других элементов */
+}
 
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1001; /* Еще выше, чем overlay */
+}

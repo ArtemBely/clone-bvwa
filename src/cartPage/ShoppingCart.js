@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ShoppingCart = ({ cartItems }) => {
+const ShoppingCart = ({ cartItems, closeCart }) => {
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantity, setTotalQuantity] = useState(0);
@@ -31,6 +31,20 @@ const ShoppingCart = ({ cartItems }) => {
       totalPrice: summary.totalPrice,
     };
   };
+
+  useEffect(() => {
+    if (Array.isArray(cartItems) && cartItems.length > 0) {
+      const summary = getCartSummary(cartItems);
+      setProducts(summary.uniqueItems);
+      setTotalQuantity(summary.totalQuantity);
+      setTotalPrice(summary.totalPrice);
+    } else {
+      // Если массив cartItems пуст, сбрасываем состояние
+      setProducts([]);
+      setTotalQuantity(0);
+      setTotalPrice(0);
+    }
+  }, [cartItems]);
 
   const removeItem = (itemId) => {
     const updatedCartItems = cartItems.filter(item => item.id !== itemId);
@@ -68,9 +82,14 @@ const ShoppingCart = ({ cartItems }) => {
     }
   }, [cartItems]);
 
+  // Функция для закрытия модального окна корзины
+  const handleClose = () => {
+    closeCart();
+  };
+
   return (
-    <div className="shopping-cart-container">
-      <div className="shopping-cart">
+    <div className="modal-overlay" onClick={handleClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
         <h2>Shopping Cart</h2>
         {totalQuantity > 0 ? (
           <>
@@ -92,6 +111,7 @@ const ShoppingCart = ({ cartItems }) => {
             </div>
             <button onClick={checkout}>Checkout</button>
             <button onClick={clearCart}>Clear Cart</button>
+            <button onClick={handleClose}>Close</button>
           </>
         ) : (
           <p>Your cart is empty.</p>
