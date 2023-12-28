@@ -6,14 +6,6 @@ import shipCard from '../images/shopping_cart_icon.png';
 import im1 from '../images/image1.jpg';
 import ShoppingCart from '../cartPage/ShoppingCart';
 
-import image1 from '../images/image1.jpg';
-import image2 from '../images/image2.jpg';
-import image3 from '../images/image3.jpg';
-import image4 from '../images/image4.jpg';
-import image5 from '../images/image5.jpg';
-import image6 from '../images/image6.jpg';
-
-
 
 
 const Header = ({
@@ -74,9 +66,8 @@ const ProductCard = () => {
   const [prod, setProd] = useState([]);
   const [error, setError] = useState('');
   const [filteredProd, setFilteredProd] = useState([]);
-  const [cartItemsActive, setCartItensActive] = useState([]);
-
-  const [imageDef, setImageDef] = useState([]);
+  const [cartItemsActive, setCartItemsActive] = useState([]);
+  const [photoUrls, setPhotoUrls] = useState({});
 
   const navigate = useNavigate();
 
@@ -91,7 +82,7 @@ const ProductCard = () => {
       setUserName('Profile');
     }
 
-    setImageDef([image1, image2, image3, image4, image5, image6]);
+
   }, []);
 
   const handleAddToCart = (selectedProduct) => {
@@ -105,7 +96,7 @@ const ProductCard = () => {
 
   const addToCard = (item) => {
     console.log(item.nazev);
-    setCartItensActive([...cartItemsActive, item]);
+    setCartItemsActive([...cartItemsActive, item]);
   }
 
   const handleAdminClick = () => {
@@ -121,30 +112,58 @@ const ProductCard = () => {
 
 
   useEffect(() => {
-    // Fetch products logic here
-    const token = localStorage.getItem('Bearer');
-    fetch('/api/v1/products', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Update product objects with image paths
-        const updatedData = data.map((item, index) => ({
-          ...item,
-          image: `../images/image${index + 1}.jpg` // Исправленный путь к изображению
-        }));
-        setProd(updatedData);
-        setFilteredProd(updatedData); // Initialize filtered products with all products
-      })
-      .catch(error => {
-        setError(error.message);
-        navigate('/error', { state: { error: error.message } });
-      });
+    const userToken = localStorage.getItem('Bearer');
+    if (userToken) {
+      setIsLoggedIn(true);
+      setUserName('Profile'); // Replace with actual logic to get user name
+    }
+    fetchProducts(); // Call the fetch products function on component mount
   }, []);
+
+  const fetchProducts = async () => {
+    const token = localStorage.getItem('Bearer');
+    try {
+      const response = await fetch('/api/v1/products', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch products');
+      }
+      const productsData = await response.json();
+      setProd(productsData);
+      setFilteredProd(productsData);
+      // After setting the products, fetch their images
+      productsData.forEach(product => fetchProductImage(product.id, token));
+    } catch (error) {
+      setError(error.message);
+      navigate('/error', { state: { error: error.message } });
+    }
+  };
+  const fetchProductImage = async (itemId, token) => {
+    try {
+      const response = await fetch(`/api/v1/products/${itemId}/photo`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch product photo');
+      }
+      const blob = await response.blob();
+      const imageUrl = URL.createObjectURL(blob);
+      setPhotoUrls((prevUrls) => ({
+        ...prevUrls,
+        [itemId]: imageUrl
+      }));
+    } catch (error) {
+      console.error('Error fetching photo:', error.message);
+    }
+  };
 
 
   useEffect(() => {
@@ -191,7 +210,7 @@ const ProductCard = () => {
           <div key={index} className='products-list'>
 
             <h3>{item.nazev}</h3>
-            <img src={imageDef[index]} alt={item.nazev} />
+            <img src={photoUrls[item.id]} alt={`${item.nazev}`} />
             <p>Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             {/* Add to Cart button logic */}
