@@ -50,6 +50,7 @@ const RegisterPage = ({ onRegister }) => {
       if (response.ok) {
 
         localStorage.setItem('Bearer', data.token);
+        localStorage.setItem('UserEmail', data.email);
         window.location.href = '/products';
 
         // Дополнительные действия после успешной аутентификации, например, перенаправление
