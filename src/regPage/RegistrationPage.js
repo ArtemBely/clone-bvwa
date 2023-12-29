@@ -43,6 +43,8 @@ const RegisterPage = ({ onRegister }) => {
           dateofbirth
         })
       });
+
+
       const data = await response.json();
 
       if (response.ok) {
@@ -63,18 +65,18 @@ const RegisterPage = ({ onRegister }) => {
 
 
   return (
-      <div className="register-window">
-        <h2>Register</h2>
-        <form onSubmit={handleRegistration}>
-          <input name="name" type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
-          <input name="surname" type="text" placeholder="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
-          <input name="phone" type="tel" placeholder="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-          <input name='dateofbirth' type="date" placeholder="dateofbirth" value={dateofbirth} onChange={(e) => setDateofbirth(e.target.value)} />
-          <input name="email" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <input name="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button type="submit" className="register-button">Register</button>
-        </form>
-      </div>
+    <div className="register-window">
+      <h2>Register</h2>
+      <form onSubmit={handleRegistration}>
+        <input name="name" type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input name="surname" type="text" placeholder="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
+        <input name="phone" type="tel" placeholder="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+        <input name='dateofbirth' type="date" placeholder="dateofbirth" value={dateofbirth} onChange={(e) => setDateofbirth(e.target.value)} />
+        <input name="email" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input name="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button type="submit" className="register-button">Register</button>
+      </form>
+    </div>
   );
 };
 
