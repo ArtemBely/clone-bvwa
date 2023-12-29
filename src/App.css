@@ -529,231 +529,143 @@ li {
   width: 100px;
   height: 100px;
 }
+/* Адаптивные стили для различных устройств */
 
-/* Adaptive for the shit*/
+/* Общие стили, не зависящие от устройства */
+/* ... */
 
-/* Example of media query for mobile devices */
-
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* For Apple iPhone devices */
-@media only screen and (min-device-width: 375px) /* iPhone 6,
-  6s,
-  7,
-  8,
-  X,
-  XS,
-  11 Pro */ and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
-  /* CSS styles specific to iPhone devices */
-  /* Add your styles here */
-}
-
-/* For new Samsung Galaxy devices */
-@media only screen and (min-device-width: 360px) /* Galaxy S6,
-  S7,
-  S8,
-  S9,
-  S10 */ and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  /* CSS styles specific to Samsung Galaxy devices */
-  /* Add your styles here */
-}
-
-.container-flex {
-  display: flex;
-  flex-direction: row; /* or column */
-  justify-content: space-between; /* or other values */
-  align-items: center; /* or other values */
-}
-
-.container-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Three columns with fractional sizes */
-  grid-template-rows: auto; /* Auto-sized rows */
-  gap: 20px; /* Gap between grid items */
-}
-
-.item {
-  grid-column: span 2; /* Item spans two columns */
-  grid-row: 1; /* Item is placed in the first row */
-}
-
-/* For mobile devices with max-width 600px */
+/* Стили для мобильных устройств (ширина до 600px) */
 @media only screen and (max-width: 600px) {
   .product-card {
-    width: 30; /* Full width on small screens */
+    width: 100%; /* Ширина карточки товара займет всю ширину экрана */
     padding: 1rem;
   }
-}
 
-/* For tablets with min-width 768px */
-@media only screen and (min-width: 768px) {
-  .product-card {
-    width: 50%; /* Half width on medium screens */
-    padding: 1rem;
-  }
-}
-
-/* For desktops with min-width 992px */
-@media only screen and (min-width: 992px) {
-  .product-card {
-    width: 33.33%; /* One third width on large screens */
-    padding: 1rem;
-  }
-}
-
-/* For large desktops with min-width 1200px */
-@media only screen and (min-width: 1200px) {
-  .product-card {
-    width: 25%; /* One fourth width on extra large screens */
-    padding: 1rem;
-  }
-}
-/* For mobile devices */
-@media only screen and (max-width: 600px) {
   .login-window {
-    width: 80%;
+    width: 80%; /* Ширина окна авторизации будет 80% ширины экрана */
     padding: 1rem;
+  }
+
+  .shopping-cart {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .admin,
+  .modal-content {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .userEd-Cont {
+    width: 100%; /* Ширина блока с данными пользователя будет 100% ширины экрана */
+    padding: 1rem;
+  }
+
+  .products-list {
+    padding: 10px 550px;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .products-list h3{
+    font-size: 60px;
+  }
+
+  .popopo {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .starving-section {
+    padding: 150px;
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  .popopo button {
+    padding: 5px 20px;
+  }
+
+  .questions {
+    padding: 20px;
+    font-size: 9px;
+    justify-content: center;
   }
 }
 
-/* For tablets */
+/* Стили для планшетов (ширина 600px - 900px) */
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .login-window {
     width: 60%;
     padding: 1.5rem;
   }
-}
 
-/* For desktops */
-@media only screen and (min-width: 900px) {
-  .login-window {
-    width: 40%;
-    padding: 2rem;
-  }
-}
-
-.modal-content {
-  /* Default styles for large screens */
-  padding: 10px 20px;
-  font-size: 18px;
-}
-
-/* For tablets */
-@media only screen and (min-width: 600px) and (max-width: 900px) {
   .modal-content {
     padding: 8px 16px;
     font-size: 16px;
   }
-}
 
-/* For mobile devices */
-@media only screen and (max-width: 600px) {
-  .shopping-cart {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
-}
-
-.admin {
-  /* Default styles for large screens */
-  padding: 10px 20px;
-  font-size: 18px;
-}
-
-/* For tablets */
-@media only screen and (min-width: 600px) and (max-width: 900px) {
   .admin {
     padding: 8px 16px;
     font-size: 16px;
   }
-}
 
-/* For mobile devices */
-@media only screen and (max-width: 600px) {
-  .admin {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
-}
-
-.userEd-Cont {
-  /* Default styles for large screens */
-  width: 300px;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border: 1px solid #ddd;
-  margin: 10% 35%;
-}
-
-/* For tablets */
-@media only screen and (min-width: 600px) and (max-width: 900px) {
   .userEd-Cont {
     width: 80%;
     padding: 1.5rem;
   }
 }
 
-/* For mobile devices */
-@media only screen and (max-width: 600px) {
-  .userEd-Cont {
-    width: 100%;
-    padding: 1rem;
+/* Стили для устройств с шириной экрана более 900px */
+@media only screen and (min-width: 900px) {
+  .login-window {
+    width: 40%;
+    padding: 2rem;
   }
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Убедитесь, что это значение выше, чем у других элементов */
-}
 
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  position: relative;
-  z-index: 1001; /* Еще выше, чем overlay */
-}
+  .admin {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
 
+  .modal-content {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
 
+  .userEd-Cont {
+    width: 300px;
+    padding: 2rem;
+  }
 
-@media only screen and (max-width: 600px) {
   .products-list {
     padding: 20px 450px;
-    font-size: 14px;
+    font-size: 18px;
     display: flex;
-    justify-content: flex-start; /* Aligns children to the start of the container's main axis */
+    justify-content: flex-start;
     align-items: center;
   }
+
   .popopo {
-    padding: 6px 12px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 18px;
   }
+
   .starving-section {
     padding: 30px 500px;
-    font-size: 9px;
+    font-size: 18px;
     justify-content: center;
+  }
 
-  }
   .popopo button {
-padding: 5px 40px;
+    padding: 10px 100px;
   }
+
   .questions {
-    padding: 30px 500px;
-    font-size: 9px;
+    padding: 30px 450px;
+    font-size: 18px;
     justify-content: center;
   }
-  
 }
