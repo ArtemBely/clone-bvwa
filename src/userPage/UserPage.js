@@ -66,6 +66,15 @@ const UserPage = () => {
         navigate('/products');
     };
 
+    const handleAddPhotoClick = () => {
+        // Предположим, что у вас есть идентификатор пользователя в состоянии 'user'
+        if (user && user.id) {
+            navigate(`/upload-photo/${user.id}`);
+        } else {
+            setError('User ID is missing.');
+        }
+    };
+
     return (
         <div>
             {user ? (
@@ -83,6 +92,7 @@ const UserPage = () => {
             )}
             {error && <p className="error-message">{error}</p>}
             <button className='back' onClick={handleButtonClick}>Go Back to Products</button>
+            <button className='back' onClick={handleAddPhotoClick}>Add Photo</button>
         </div>
     );
 }

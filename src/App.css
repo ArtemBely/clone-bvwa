@@ -534,7 +534,6 @@ li {
 
 /* Example of media query for mobile devices */
 
-
 img {
   max-width: 100%;
   height: auto;
@@ -720,14 +719,12 @@ img {
 }
 
 .modal-content {
-  background: white;
+  background: rgb(57, 91, 5);
   padding: 20px;
   border-radius: 5px;
   position: relative;
   z-index: 1001; /* Еще выше, чем overlay */
 }
-
-
 
 @media only screen and (max-width: 600px) {
   .products-list {
@@ -745,15 +742,72 @@ img {
     padding: 30px 500px;
     font-size: 9px;
     justify-content: center;
-
   }
   .popopo button {
-padding: 5px 40px;
+    padding: 5px 40px;
   }
   .questions {
     padding: 30px 500px;
     font-size: 9px;
     justify-content: center;
   }
-  
+}
+
+/* YourStylesheetName.css */
+.upload-photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 50px;
+  background-color: #848484;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 50px auto;
+}
+
+.upload-photo-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.photo-input {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: calc(100% - 22px); /* Adjust width based on padding and border */
+  border-radius: 5px;
+}
+
+.upload-btn {
+  background-color: #f0ad4e; /* Bootstrap's btn-warning color */
+}
+.upload-btn:hover {
+  background-color: #4cae4c; /* A slightly darker green */
+}
+
+/* Adjustments for better responsiveness */
+@media (max-width: 768px) {
+  .upload-photo-container {
+    width: 90%; /* More width on smaller screens */
+  }
+}
+/* Ваш файл стилей CSS */
+
+.button.logout {
+  /* Стилизация кнопки "Logout" */
+  background-color: #f44336; /* Красный цвет для кнопки выхода */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 10px; /* Добавьте отступ, если нужно */
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button.logout:hover {
+  background-color: #d32f2f; /* Более темный оттенок красного для эффекта наведения */
 }

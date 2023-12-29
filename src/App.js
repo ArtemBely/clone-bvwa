@@ -11,7 +11,7 @@ import ProductCard from './productCard/ProductCard';
 import UserEdit from './userEditPage/UserEdit';
 import UserPage from './userPage/UserPage';
 import ErrorPage from './errorPage/error';
-import AddPhoto from './regPage/AddPhoto';
+import PhotoUploadPage from './regPage/PhotoUploadPage';
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
             <Route path="/user" element={<UserPage />} />
             {/* <Route path="/cart" element={<ShoppingCart />} /> */}
             <Route path="/error" element={<ErrorPage />} />
-            <Route path="/add-photo" element={<AddPhoto />} />
+            <Route path="/upload-photo/:userId" element={<PhotoUploadPage />} />
             {/* Другие маршруты */}
           </Routes>
         </main>

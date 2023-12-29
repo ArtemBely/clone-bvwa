@@ -72,6 +72,12 @@ const ProductCard = () => {
     }
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem('Bearer'); // Удаляем токен аутентификации
+    localStorage.removeItem('UserEmail'); // Удаляем email пользователя
+    navigate('/'); // Перенаправляем на страницу логина
+  };
+
   const fetchProducts = async (token) => {
     try {
       const response = await fetch('/api/v1/products', {
@@ -192,6 +198,12 @@ const ProductCard = () => {
           onClick={() => window.location.href = 'http://localhost:8000'}
         >
           Chat
+        </button>
+        <button
+          className="button logout"
+          onClick={handleLogout}
+        >
+          Logout
         </button>
       </div>
     </div>
