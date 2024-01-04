@@ -20,7 +20,7 @@ const Header = ({
       <img src={fastFoodLogo} alt="Fast Food Logo" />
     </div>
     <div className="popopo">
-      <button className="button cart" onClick={onCartClick}>
+      <button className="button-cart" onClick={onCartClick}>
         <img src={shipCard} alt="card" />
       </button>
       <button className="button admin" onClick={onAdminClick}>
@@ -165,7 +165,7 @@ const ProductCard = () => {
         onCartClick={handleCartClick}
       />
       <div className="starving-section">
-        <h1>Are you starving?</h1>
+        <h1 className="starve">Are you starving?</h1>
         <div className="search-bar-container">
           <input
             className="search"
@@ -180,7 +180,7 @@ const ProductCard = () => {
           <div key={index} className='products-list'>
             <h3>{item.nazev}</h3>
             <img src={photoUrls[item.id]} alt={`${item.nazev}`} />
-            <p>Description: {item.popis}</p>
+            <p className="prod-desc">Description: {item.popis}</p>
             <p>Price: ₸{item.cena}</p>
             <button onClick={() => addToCart(item)}>Add to cart</button>
           </div>

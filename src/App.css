@@ -493,7 +493,7 @@ body {
   justify-content: flex-start; /* Aligns children to the start of the container's main axis */
   align-items: center;
   gap: 10px;
-  background-color: #42424281;
+  background-color: #424242;
   box-shadow: 0 0px 18px rgba(250, 226, 5, 0.784);
 }
 
@@ -529,195 +529,135 @@ li {
   width: 100px;
   height: 100px;
 }
-/* Адаптивные стили для различных устройств */
 
-/* Общие стили, не зависящие от устройства */
-/* ... */
-
-<<<<<<< HEAD
-/* Стили для мобильных устройств (ширина до 600px) */
-=======
-/* Example of media query for mobile devices */
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* For Apple iPhone devices */
-@media only screen and (min-device-width: 375px) /* iPhone 6,
-  6s,
-  7,
-  8,
-  X,
-  XS,
-  11 Pro */ and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
-  /* CSS styles specific to iPhone devices */
-  /* Add your styles here */
-}
-
-/* For new Samsung Galaxy devices */
-@media only screen and (min-device-width: 360px) /* Galaxy S6,
-  S7,
-  S8,
-  S9,
-  S10 */ and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  /* CSS styles specific to Samsung Galaxy devices */
-  /* Add your styles here */
-}
-
-.container-flex {
-  display: flex;
-  flex-direction: row; /* or column */
-  justify-content: space-between; /* or other values */
-  align-items: center; /* or other values */
-}
-
-.container-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Three columns with fractional sizes */
-  grid-template-rows: auto; /* Auto-sized rows */
-  gap: 20px; /* Gap between grid items */
-}
-
-.item {
-  grid-column: span 2; /* Item spans two columns */
-  grid-row: 1; /* Item is placed in the first row */
-}
-
-/* For mobile devices with max-width 600px */
->>>>>>> c1c13ca63b9df98ae9a86c8d975c64f6eb7d765c
 @media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .questions {
+    height: 5vh;
+  }
+  .starving-section,
+  .questions {
+    font-size: 4vw;
+  }
+  .products-list {
+    flex-direction: column;
+    align-items: center;
+  }
   .product-card {
-    width: 100%; /* Ширина карточки товара займет всю ширину экрана */
-    padding: 1rem;
+    width: 90%;
+    margin: 5px;
+    padding: 10px;
   }
-
-  .login-window {
-    width: 80%; /* Ширина окна авторизации будет 80% ширины экрана */
-    padding: 1rem;
+  .product-card img {
+    max-width: 100%;
+    height: auto;
   }
-
-  .shopping-cart {
-    padding: 6px 12px;
-    font-size: 14px;
+  .product-card button,
+  .product-card input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
   }
-
-  .admin,
-  .modal-content {
-    padding: 6px 12px;
-    font-size: 14px;
+  .products-list img {
+    width: 70%;
+    height: auto;
   }
-
-  .userEd-Cont {
-    width: 100%; /* Ширина блока с данными пользователя будет 100% ширины экрана */
-    padding: 1rem;
+  .products-list .prod-desc {
+    display: none;
   }
-
-  .products-list {
-    padding: 10px 550px;
-    font-size: 30px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  .products-list button {
+    width: 50%;
+    height: auto;
   }
-  .products-list h3{
-    font-size: 60px;
+  .starve {
+    display: none;
   }
-
-  .popopo {
-    padding: 6px 12px;
-    font-size: 14px;
+  .search-bar-container {
+    width: 70%;
   }
-
-  .starving-section {
-    padding: 150px;
-    font-size: 20px;
-    justify-content: center;
+  .search-bar-container input {
+    width: 90%;
   }
-
-  .popopo button {
-    padding: 5px 20px;
-  }
-
-  .questions {
-    padding: 20px;
-    font-size: 9px;
-    justify-content: center;
+  .logo {
+    display: none;
   }
 }
 
-/* Стили для планшетов (ширина 600px - 900px) */
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-  .login-window {
-    width: 60%;
-    padding: 1.5rem;
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .header {
+    padding: 10px;
   }
-
-  .modal-content {
-    padding: 8px 16px;
-    font-size: 16px;
+  .starving-section,
+  .questions {
+    font-size: medium;
   }
-
-  .admin {
-    padding: 8px 16px;
-    font-size: 16px;
+  .products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-
-  .userEd-Cont {
+  .products-list img {
+    width: 70%;
+    height: auto;
+  }
+  .product-card {
     width: 80%;
-    padding: 1.5rem;
+  }
+  .logo {
+    position: relative;
+    top: 0;
+    left: 0;
   }
 }
 
-/* Стили для устройств с шириной экрана более 900px */
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1025px) {
+  .header {
+    padding: 20px;
+  }
+
+  .product-card {
+    width: 70%;
+  }
+}
+.button-cart {
+  background-color: transparent !important;
+}
+
+@media only screen and (max-width: 600px) {
   .login-window {
-    width: 40%;
-    padding: 2rem;
+    margin: 0 5%;
+    width: 80%;
+    height: auto;
   }
-
-  .admin {
-    padding: 10px 20px;
-    font-size: 18px;
+  .user-details {
+    margin: 0 5%;
+    width: 50%;
+    height: auto;
+    gap: 10px;
   }
-
-  .modal-content {
-    padding: 10px 20px;
-    font-size: 18px;
+}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .login-window {
+    margin: 10% 10%;
   }
-
-  .userEd-Cont {
-    width: 300px;
-    padding: 2rem;
+  .user-details {
+    margin: 0 5%;
+    width: 50%;
+    height: auto;
+    gap: 10px;
   }
-
-  .products-list {
-    padding: 20px 450px;
-    font-size: 18px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .register-window {
+    margin: 10% 5%;
+    width: 80%;
+    height: auto;
   }
-
-  .popopo {
-    padding: 10px 20px;
-    font-size: 18px;
-  }
-
-  .starving-section {
-    padding: 30px 500px;
-    font-size: 18px;
-    justify-content: center;
-  }
-
-  .popopo button {
-    padding: 10px 100px;
-  }
-
-  .questions {
-    padding: 30px 450px;
-    font-size: 18px;
-    justify-content: center;
+}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .register-window {
+    margin: 10% 10%;
   }
 }
