@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const API_BASE_URL = 'http://137.184.45.201';
+
 const UserPage = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
@@ -23,7 +25,7 @@ const UserPage = () => {
         }
 
         // Fetch user details
-        fetch(`/api/v1/user?email=${encodeURIComponent(email)}`, {
+        fetch(`${API_BASE_URL}/api/v1/user?email=${encodeURIComponent(email)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +40,7 @@ const UserPage = () => {
             })
             .then(data => {
                 setUser(data);
-                return fetch(`/api/v1/user/${data.id}/photo`, {
+                return fetch(`${API_BASE_URL}/api/v1/user/${data.id}/photo`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`

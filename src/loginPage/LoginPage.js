@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+
+const API_BASE_URL = 'http://137.184.45.201';
+
 const LoginPage = ({ onBack }) => {
   const [loginResponse, setLoginResponse] = useState('');
   const [email, setEmail] = useState('');
@@ -10,7 +13,7 @@ const LoginPage = ({ onBack }) => {
     setLoginResponse(''); // Clear previous responses
 
     try {
-      const response = await fetch('/api/v1/auth/authenticate', {
+      const response = await fetch(`${API_BASE_URL}/api/v1/auth/authenticate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

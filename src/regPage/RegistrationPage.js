@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+
+const API_BASE_URL = 'http://137.184.45.201';
+
 const RegisterPage = ({ onRegister }) => {
 
   const [email, setEmail] = useState('');
@@ -28,7 +31,7 @@ const RegisterPage = ({ onRegister }) => {
 
     try {
       // Выполнить запрос к API
-      const response = await fetch('/api/v1/auth/create', {
+      const response = await fetch(`${API_BASE_URL}/api/v1/auth/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

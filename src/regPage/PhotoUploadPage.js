@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
+const API_BASE_URL = 'http://137.184.45.201';
 const PhotoUploadPage = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const { userId } = useParams(); // Получаем userId из URL параметра
@@ -29,7 +30,7 @@ const PhotoUploadPage = () => {
             }
 
 
-            const response = await fetch(`/api/v1/user/${userId}/photo`, {
+            const response = await fetch(`${API_BASE_URL}/api/v1/user/${userId}/photo`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}` // Добавляем токен в заголовки запроса

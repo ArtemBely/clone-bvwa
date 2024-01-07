@@ -5,6 +5,9 @@ import logousernot from '../images/logo_user_not.png';
 import shipCard from '../images/shopping_cart_icon.png';
 import ShoppingCart from '../cartPage/ShoppingCart';
 
+
+const API_BASE_URL = 'http://137.184.45.201';
+
 const Header = ({
   onLoginClick,
   onCartClick,
@@ -80,7 +83,7 @@ const ProductCard = () => {
 
   const fetchProducts = async (token) => {
     try {
-      const response = await fetch('/api/v1/products', {
+      const response = await fetch(`${API_BASE_URL}/api/v1/products`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -104,7 +107,7 @@ const ProductCard = () => {
 
   const fetchProductImage = async (itemId, token) => {
     try {
-      const response = await fetch(`/api/v1/products/${itemId}/photo`, {
+      const response = await fetch(`${API_BASE_URL}/api/v1/products/${itemId}/photo`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -195,7 +198,7 @@ const ProductCard = () => {
       <div className="questions">
         <button
           className="button questionsNur"
-          onClick={() => window.location.href = 'http://localhost:8000'}
+          onClick={() => window.location.href = 'http://3.67.148.91'}
         >
           Chat
         </button>

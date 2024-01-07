@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+const API_BASE_URL = 'http://137.184.45.201';
 const UserEdit = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -31,7 +32,7 @@ const UserEdit = () => {
         }
 
         const token = localStorage.getItem('Bearer');
-        fetch(`/api/v1/user/${user.id}`, { // Use user.id in the API endpoint
+        fetch(`${API_BASE_URL}/api/v1/user/${user.id}`, { // Use user.id in the API endpoint
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

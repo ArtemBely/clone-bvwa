@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const API_BASE_URL = 'http://137.184.45.201';
+
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
@@ -9,7 +11,7 @@ const AdminPage = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('Bearer');
-    fetch('api/v1/users/', {
+    fetch(`${API_BASE_URL}/api/v1/users/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -59,7 +61,7 @@ const AdminPage = () => {
       </div>
 
       <div className="questions" >
-        <button className="button questionsNur" onClick={() => window.location.href = 'http://localhost:8000'}>
+        <button className="button questionsNur" onClick={() => window.location.href = 'http://3.67.148.91'}>
           Chat
         </button>
       </div>
