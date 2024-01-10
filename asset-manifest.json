@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/clone-bvwa/static/css/main.1adda221.css",
-    "main.js": "/clone-bvwa/static/js/main.e4eb80a0.js",
+    "main.css": "/clone-bvwa/static/css/main.2c85f36e.css",
+    "main.js": "/clone-bvwa/static/js/main.a07595c5.js",
     "static/js/787.abe987d8.chunk.js": "/clone-bvwa/static/js/787.abe987d8.chunk.js",
-    "static/media/fastfood2.jpg": "/clone-bvwa/static/media/fastfood2.a13ffc4db75030fb73cf.jpg",
-    "static/media/LoginPage111.avif": "/clone-bvwa/static/media/LoginPage111.10f140797249c43dbf71.avif",
+    "static/media/BackGr.jpg": "/clone-bvwa/static/media/BackGr.2b7fe7fc5cc04811278a.jpg",
+    "static/media/LOGO.png": "/clone-bvwa/static/media/LOGO.e4124f7ab2f3766b1031.png",
     "index.html": "/clone-bvwa/index.html",
-    "main.1adda221.css.map": "/clone-bvwa/static/css/main.1adda221.css.map",
-    "main.e4eb80a0.js.map": "/clone-bvwa/static/js/main.e4eb80a0.js.map",
+    "main.2c85f36e.css.map": "/clone-bvwa/static/css/main.2c85f36e.css.map",
+    "main.a07595c5.js.map": "/clone-bvwa/static/js/main.a07595c5.js.map",
     "787.abe987d8.chunk.js.map": "/clone-bvwa/static/js/787.abe987d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1adda221.css",
-    "static/js/main.e4eb80a0.js"
+    "static/css/main.2c85f36e.css",
+    "static/js/main.a07595c5.js"
   ]
 }
