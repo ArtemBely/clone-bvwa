@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/clone-bvwa/static/css/main.1adda221.css",
+    "main.js": "/clone-bvwa/static/js/main.e4eb80a0.js",
+    "static/js/787.abe987d8.chunk.js": "/clone-bvwa/static/js/787.abe987d8.chunk.js",
+    "static/media/fastfood2.jpg": "/clone-bvwa/static/media/fastfood2.a13ffc4db75030fb73cf.jpg",
+    "static/media/LoginPage111.avif": "/clone-bvwa/static/media/LoginPage111.10f140797249c43dbf71.avif",
+    "index.html": "/clone-bvwa/index.html",
+    "main.1adda221.css.map": "/clone-bvwa/static/css/main.1adda221.css.map",
+    "main.e4eb80a0.js.map": "/clone-bvwa/static/js/main.e4eb80a0.js.map",
+    "787.abe987d8.chunk.js.map": "/clone-bvwa/static/js/787.abe987d8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1adda221.css",
+    "static/js/main.e4eb80a0.js"
+  ]
+}
